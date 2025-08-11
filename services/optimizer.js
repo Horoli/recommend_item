@@ -58,7 +58,6 @@ class Optimizer {
 
   // 동일 슬롯 내 지배 제거
   static pruneDominated(candsPerSlot) {
-    // price.lowestPrice 기준 정렬
     candsPerSlot.sort(
       (a, b) =>
         a.price.lowestPrice - b.price.lowestPrice || b.deltaScore - a.deltaScore
@@ -74,7 +73,11 @@ class Optimizer {
     return out;
   }
 
-  // 후보 생성(풀업 스탯) → 가격조회(최저가 상세) → 카드만 + price null 제거 → 지배 제거
+  // ✅ 풀업(업그레이드 2)만 남기는 필터
+  static keepOnlyUpgrade2(cands = []) {
+    return (cands || []).filter((c) => Number(c?.upgrade ?? 0) === 2);
+  }
+
   static async buildCandidatesWithPrices(
     equipment,
     currentBySlot,
@@ -91,15 +94,22 @@ class Optimizer {
     const rough = [];
     for (const eq of equipment) {
       const base = currentBySlot.get(eq.slotId)?.currentScore ?? 0;
-      // 풀업(2/2) 기준 후보
-      const slotCands = Enchants.getMaxUpgradeCandidatesForSlot(eq.slotId, 2);
 
-      // 같은 itemId는 하나만(풀업만 쓰니 OK) + 카드만
+      // ⚠️ targetUpgrade=2를 주더라도 Enchants 쪽에서 해당 단계가 없으면 최댓값으로 대체됨(=3 가능)
+      let slotCands = Enchants.getMaxUpgradeCandidatesForSlot(eq.slotId, 2);
+
+      // ✅ 같은 itemId+slotId 묶음에서 "최고 업그레이드만" 유지 (2 또는 3 등)
+      slotCands = this.keepOnlyHighestUpgrade(slotCands);
+
+      // 같은 itemId는 하나만 + 카드만
       const seen = new Set();
       const perSlot = [];
       for (const c of slotCands) {
+        // ✅ 루프 레벨에서도 방어: 최고 업그레이드가 아닌 엔트리 스킵
+        // (keepOnlyHighestUpgrade 이후라 이 라인은 사실상 안전망)
+        const key = `${c.itemId}:${c.slotId}`;
         if (seen.has(c.itemId)) continue;
-        if (!(c.itemName || "").includes("카드")) continue; // ← 카드만
+        if (!(c.itemName || "").includes("카드")) continue; // 카드만
         seen.add(c.itemId);
 
         const delta = c.score - base;
@@ -111,33 +121,36 @@ class Optimizer {
           equippedItemName: eq.itemName,
           itemId: c.itemId,
           itemName: c.itemName,
-          upgrade: c.upgrade, // 표시용(풀업)
-          candidateScore: c.score, // 풀업 점수
+          upgrade: c.upgrade, // 표시용 (2 또는 3 등 최고치)
+          candidateScore: c.score,
           baseScore: base,
           deltaScore: delta,
-          price: null, // 나중에 상세객체 주입
+          price: null,
           efficiency: null,
           status: c.status,
           rarity: c.rarity,
         });
       }
 
-      // 슬롯당 델타 상위 N개
       perSlot.sort((a, b) => b.deltaScore - a.deltaScore);
       rough.push(...perSlot.slice(0, topDeltaPerSlot));
     }
 
     if (!rough.length) return new Map();
 
+    // ✅ 가격 조회 전에도 한 번 더 최고 업그레이드만 유지 (다중 경로 방어)
+    const roughFull = this.keepOnlyHighestUpgrade(rough);
+
     // 가격 상세 객체 조회
     const priceMap = await this.fetchPricesByItemId(
-      rough.map((r) => r.itemId),
+      roughFull.map((r) => r.itemId),
       dfApi,
-      priceLookupDelay
+      // NOTE: 여기는 { concurrency, timeoutMs } 옵션 객체를 넘기는 자리입니다.
+      // 필요 시 { concurrency: 8, timeoutMs: priceLookupDelay }로 맞추세요.
+      undefined
     );
 
-    // 가격 주입 + null 제거 + 효율 계산(최저가 기준)
-    const priced = rough
+    const priced = roughFull
       .map((r) => ({ ...r, price: priceMap.get(r.itemId) ?? null }))
       .filter(
         (r) =>
@@ -147,20 +160,28 @@ class Optimizer {
       )
       .map((r) => ({ ...r, efficiency: r.deltaScore / r.price.lowestPrice }));
 
-    // 슬롯별 묶기 + 지배 제거
     const slotMap = new Map();
     for (const c of priced) {
       if (!slotMap.has(c.slotId)) slotMap.set(c.slotId, []);
       slotMap.get(c.slotId).push(c);
     }
     for (const [slotId, arr] of slotMap) {
-      slotMap.set(slotId, this.pruneDominated(arr));
+      // ✅ 최종 반환 전에도 최고 업그레이드만 유지 → 지배 제거
+      slotMap.set(
+        slotId,
+        this.pruneDominated(this.keepOnlyHighestUpgrade(arr))
+      );
     }
     return slotMap;
   }
 
   // 멀티초이스 배낭(MCKP): 가격은 price.lowestPrice 사용
-  static selectByBudgetMCKP(slotMap, budget, priceUnit = 100000) {
+  static selectByBudgetMCKP(
+    slotMap,
+    budget,
+    priceUnit = 100000,
+    sortMode = process.env.PLAN_SORT_MODE ?? "eff"
+  ) {
     const groups = Array.from(slotMap.values()).filter(
       (arr) => arr && arr.length
     );
@@ -219,13 +240,45 @@ class Optimizer {
       }
     }
 
-    const spent = chosen.reduce((s, x) => s + x.price.lowestPrice, 0);
+    const chosenRev = chosen.reverse();
+
+    const eff = (x) =>
+      x?.price?.lowestPrice > 0
+        ? (x.deltaScore ?? x.score ?? 0) / x.price.lowestPrice
+        : -Infinity;
+    const cmpEff = (a, b) =>
+      eff(b) - eff(a) ||
+      (b.deltaScore ?? b.score ?? 0) - (a.deltaScore ?? a.score ?? 0) ||
+      (a.price?.lowestPrice ?? Infinity) - (b.price?.lowestPrice ?? Infinity);
+
+    const cmpScore = (a, b) =>
+      (b.deltaScore ?? b.score ?? 0) - (a.deltaScore ?? a.score ?? 0) ||
+      eff(b) - eff(a) ||
+      (a.price?.lowestPrice ?? Infinity) - (b.price?.lowestPrice ?? Infinity);
+
+    const sortedChosen = chosenRev.sort(sortMode === "eff" ? cmpEff : cmpScore);
+
+    const spent = sortedChosen.reduce((s, x) => s + x.price.lowestPrice, 0);
+
     return {
-      chosen: chosen.reverse(),
+      chosen: sortedChosen,
       spent,
       remain: Math.max(0, budget - spent),
       totalDelta: Math.max(0, dp[bestW]),
     };
+  }
+
+  // (참고용) 최고 업그레이드만 유지 — 현재는 keepOnlyUpgrade2로 대체 가능
+  static keepOnlyHighestUpgrade(cands = []) {
+    const best = new Map();
+    for (const c of cands) {
+      const key = `${c.itemId}:${c.slotId}`;
+      const prev = best.get(key);
+      const u = Number(c.upgrade ?? 0);
+      const uprev = Number(prev?.upgrade ?? -1);
+      if (!prev || u > uprev) best.set(key, c);
+    }
+    return Array.from(best.values());
   }
 }
 

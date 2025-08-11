@@ -1,12 +1,12 @@
 // routes/recommend.js
-const DfApi = require("../services/df_api"); // 네가 export한 객체 사용 (findCharacter/getEquipment/getAuctionLowestPrice 포함)
+const DfApi = require("../services/df_api");
 const Enchants = require("../services/enchants");
 const Optimizer = require("../services/optimizer");
 
 module.exports = async function (fastify) {
   fastify.get("/recommend", async (request, reply) => {
     try {
-      const { server, characterId, name, gold, top, limit } =
+      const { server, characterId, name, gold, top, limit, sortMode } =
         request.query || {};
       if (!server)
         return reply.status(400).send({ error: "server is required" });
@@ -19,7 +19,7 @@ module.exports = async function (fastify) {
       const safeTopN =
         Number.isFinite(topN) && topN > 0 ? Math.min(topN, 50) : 3;
 
-      // 캐릭터 식별
+      // 1) 캐릭터 식별
       let cid = characterId;
       if (!cid) {
         const found = await DfApi.findCharacter(server, name);
@@ -28,16 +28,17 @@ module.exports = async function (fastify) {
         cid = found.characterId;
       }
 
-      // 장비
+      // 2) 장비 조회
       const equipObj = await DfApi.getEquipment(server, cid);
       const equipment = Array.isArray(equipObj?.equipment)
         ? equipObj.equipment
         : [];
 
-      // 기본 추천(풀업 스탯) 산출
+      // 3) 기본 추천(풀업=마지막 업글, Δ×가중치 점수) 산출
       const evals = Enchants.evaluateAllEquipment(equipment, safeTopN);
-      // 카드만
-      const needsRaw = evals
+
+      // 4) 카드만 필터
+      const cardOnly = evals
         .map((slot) => ({
           ...slot,
           recommended: (slot.recommended || []).filter((r) =>
@@ -46,31 +47,49 @@ module.exports = async function (fastify) {
         }))
         .filter((slot) => slot.recommended.length > 0);
 
-      // 가격 상세 조회 & 주입 (null 제거)
+      // 5) 가격 조회
       const recItemIds = new Set();
-      for (const slot of needsRaw)
+      for (const slot of cardOnly)
         for (const r of slot.recommended)
           if (r?.itemId) recItemIds.add(r.itemId);
+
       const priceMapForRecommend = await Optimizer.fetchPricesByItemId(
         [...recItemIds],
         DfApi,
-        Number(process.env.PRICE_LOOKUP_DELAY ?? 50)
+        {
+          concurrency: Number(process.env.PRICE_CONCURRENCY ?? 8),
+          timeoutMs: Number(process.env.PRICE_TIMEOUT_MS ?? 6000),
+        }
       );
 
-      const needs = needsRaw
+      // 6) 가격 주입 + 무가/누락 제거 (recommended.currentStats 사용 안 함)
+      const needs = cardOnly
         .map((slot) => {
           const withPrice = slot.recommended
-            .map((r) => ({
-              ...r,
-              price: priceMapForRecommend.get(r.itemId) ?? null,
-            }))
+            .map((r) => {
+              const price = priceMapForRecommend.get(r.itemId) ?? null;
+              return {
+                ...r, // itemId, itemName, slotId, slotName, upgrade, rarity, score, recStats, diff
+                price, // { lowestPrice, ... }
+              };
+            })
             .filter(
               (r) =>
                 r.price &&
                 Number.isFinite(r.price.lowestPrice) &&
                 r.price.lowestPrice > 0
             );
-          return { ...slot, recommended: withPrice };
+
+          // 가격 필터 후 점수 기준 재정렬
+          withPrice.sort((a, b) => b.score - a.score);
+
+          return {
+            slotId: slot.slotId,
+            slotName: slot.slotName,
+            equippedItemName: slot.equippedItemName,
+            currentStats: slot.currentStats, // ✅ 슬롯에만 유지
+            recommended: withPrice, // ✅ 항목에는 currentStats 없음
+          };
         })
         .filter((slot) => slot.recommended.length > 0);
 
@@ -81,10 +100,10 @@ module.exports = async function (fastify) {
           upgradeNeededSlots: needs.length,
           recommendedPerSlot: safeTopN,
         },
-        enchantRecommendations: needs, // price: {lowestPrice, raw}
+        enchantRecommendations: needs, // price: {lowestPrice, ...}, score: Δ×가중치
       };
 
-      // gold 플랜 (MCKP)
+      // 7) 예산 플랜(MCKP) — Δ점수와 가격만으로 구성
       const budget = gold !== undefined ? Number(gold) : null;
       if (budget !== null) {
         if (!Number.isFinite(budget) || budget <= 0) {
@@ -93,31 +112,35 @@ module.exports = async function (fastify) {
             .send({ error: "gold must be positive number" });
         }
 
-        const currentBySlot = new Map();
-        for (const eq of equipment) {
-          currentBySlot.set(eq.slotId, {
-            equip: eq,
-            currentScore: Enchants.scoreEquipmentEnchant(eq),
-          });
+        // slotMap: Map<slotId, Array<candidate>>
+        const slotMap = new Map();
+        for (const slot of needs) {
+          const cands = slot.recommended
+            .map((r) => ({
+              slotId: slot.slotId,
+              slotName: slot.slotName,
+              equippedItemName: slot.equippedItemName,
+              itemId: r.itemId,
+              itemName: r.itemName,
+              upgrade: r.upgrade, // 풀업
+              price: r.price, // {lowestPrice, ...}
+              deltaScore: r.score, // Δ×가중치 점수
+              baseScore: 0, // 베이스 스코어 개념 삭제
+              candidateScore: r.score, // 호환 필드(있으면 쓰는 외부 로직 대비)
+              status: r.recStats, // 추천 스탯(합산 맵)
+              rarity: r.rarity,
+            }))
+            .sort((a, b) => b.deltaScore - a.deltaScore)
+            .slice(0, Number(process.env.TOP_DELTA_PER_SLOT ?? 8));
+          slotMap.set(slot.slotId, cands);
         }
-
-        const slotMap = await Optimizer.buildCandidatesWithPrices(
-          equipment,
-          currentBySlot,
-          Enchants,
-          DfApi,
-          {
-            deltaMin: Number(process.env.DELTA_MIN ?? 50),
-            topDeltaPerSlot: Number(process.env.TOP_DELTA_PER_SLOT ?? 8),
-            priceLookupDelay: Number(process.env.PRICE_LOOKUP_DELAY ?? 120),
-          }
-        );
 
         const PRICE_UNIT = Number(process.env.PRICE_UNIT ?? 100000);
         const planRes = Optimizer.selectByBudgetMCKP(
           slotMap,
           budget,
-          PRICE_UNIT
+          PRICE_UNIT,
+          sortMode
         );
 
         response.budget = budget;
@@ -130,13 +153,15 @@ module.exports = async function (fastify) {
             equippedItemName: x.equippedItemName,
             itemId: x.itemId,
             itemName: x.itemName,
-            upgrade: x.upgrade, // 풀업
-            price: x.price, // {lowestPrice, raw}
-            score: x.score ?? x.candidateScore,
-            baseScore: x.baseScore,
-            deltaScore: x.deltaScore, // 풀업 기준
-            efficiency: x.deltaScore / x.price.lowestPrice,
-            status: x.status,
+            price: x.price, // {lowestPrice, ...}
+            score: x.deltaScore, // 표시용
+            baseScore: 0,
+            deltaScore: x.deltaScore,
+            efficiency:
+              x.price && x.price.lowestPrice
+                ? x.deltaScore / x.price.lowestPrice
+                : null,
+            status: x.status, // 추천 스탯(합산 맵)
             rarity: x.rarity,
           })),
           totalDelta: planRes.totalDelta,
@@ -187,8 +212,8 @@ function summarizeBestPerSlot(cands) {
     slotName: x.slotName,
     itemId: x.itemId,
     itemName: x.itemName,
-    upgrade: x.upgrade, // 풀업
-    price: x.price, // {lowestPrice, raw}
+    upgrade: x.upgrade,
+    price: x.price,
     deltaScore: x.deltaScore,
     efficiency:
       x.price && x.price.lowestPrice
