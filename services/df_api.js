@@ -38,6 +38,17 @@ class DfApi {
     };
   }
 
+  static async getCharacterStatus(server, characterId) {
+    const url = `/servers/${encodeURIComponent(
+      server
+    )}/characters/${encodeURIComponent(
+      characterId
+    )}/status?apikey=${DP_API_KEY}`;
+
+    const res = await http.get(url);
+    return res.data;
+  }
+
   /**
    * 장비 조회
    * 반환: API 원본(res.data)

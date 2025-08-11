@@ -73,11 +73,6 @@ class Optimizer {
     return out;
   }
 
-  // ✅ 풀업(업그레이드 2)만 남기는 필터
-  static keepOnlyUpgrade2(cands = []) {
-    return (cands || []).filter((c) => Number(c?.upgrade ?? 0) === 2);
-  }
-
   static async buildCandidatesWithPrices(
     equipment,
     currentBySlot,

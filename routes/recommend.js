@@ -28,8 +28,12 @@ module.exports = async function (fastify) {
         cid = found.characterId;
       }
 
+      const getStatus = await DfApi.getCharacterStatus(server, cid);
+      console.log(getStatus.status);
+
       // 2) 장비 조회
       const equipObj = await DfApi.getEquipment(server, cid);
+
       const equipment = Array.isArray(equipObj?.equipment)
         ? equipObj.equipment
         : [];
