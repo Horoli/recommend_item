@@ -28,18 +28,24 @@ module.exports = async function (fastify) {
         cid = found.characterId;
       }
 
-      const getStatus = await DfApi.getCharacterStatus(server, cid);
-      console.log(getStatus.status);
+      // 1) 캐릭터 상태 조회
+      const charStatus = await DfApi.getCharacterStatus(server, cid);
 
       // 2) 장비 조회
       const equipObj = await DfApi.getEquipment(server, cid);
-
       const equipment = Array.isArray(equipObj?.equipment)
         ? equipObj.equipment
         : [];
 
-      // 3) 기본 추천(풀업=마지막 업글, Δ×가중치 점수) 산출
-      const evals = Enchants.evaluateAllEquipment(equipment, safeTopN);
+      // 3) 최고 속강 타입(예: "화속성강화") 추출
+      const filterElemKey = Enchants.pickTopElementKeyFromStatus(
+        charStatus?.status || []
+      );
+
+      // 4) 평가 호출 시 필터 주입 (모속강 카드는 내부에서 자동 포함됨)
+      const evals = Enchants.evaluateAllEquipment(equipment, safeTopN, {
+        filterElemKey,
+      });
 
       // 4) 카드만 필터
       const cardOnly = evals
@@ -90,6 +96,7 @@ module.exports = async function (fastify) {
           return {
             slotId: slot.slotId,
             slotName: slot.slotName,
+            equippedItemId: slot.equippedItemId,
             equippedItemName: slot.equippedItemName,
             currentStats: slot.currentStats, // ✅ 슬롯에만 유지
             recommended: withPrice, // ✅ 항목에는 currentStats 없음

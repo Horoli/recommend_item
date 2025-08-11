@@ -9,34 +9,23 @@ class Enchants {
   );
 
   static WEIGHTS = {
-    // 개별 키 가중치(필요 시 추가)
     _공격력: 3,
-    _속성강화: 25,
+    _속성강화: 25, // 동적 보정의 베이스
     _능력치: 0.6,
     "공격력 증폭": 100,
     "최종 데미지": 120,
     "모험가 명성": 0,
   };
 
-  static ELEMENT_DAMAGES = new Set([
-    "물리 공격력",
-    "마법 공격력",
-    "독립 공격력",
-  ]);
-
-  static ELEMENT_ATTRIBUTES = new Set(["힘", "지능", "정신력", "체력"]);
-  static ELEMENT_NAMES = new Set([
-    "모든 속성 강화",
+  // 네 원소 키(정규화 형태)
+  static ELEMENT_ENH_KEYS = [
     "화속성강화",
     "수속성강화",
     "명속성강화",
     "암속성강화",
-    "화속성 강화",
-    "수속성 강화",
-    "명속성 강화",
-    "암속성 강화",
-  ]);
+  ];
 
+  // -------- file I/O --------
   static readJSONSafe(fp, fb) {
     try {
       if (!fs.existsSync(fp)) return fb;
@@ -51,7 +40,7 @@ class Enchants {
     return { enchants: Array.isArray(raw.enchants) ? raw.enchants : [] };
   }
 
-  // 문자열("3%","1,234.5")도 숫자로 변환
+  // -------- normalize & map --------
   static normalizeValue(v) {
     if (typeof v === "number") return v;
     if (typeof v === "string") {
@@ -61,15 +50,11 @@ class Enchants {
     }
     return NaN;
   }
-
-  // ✅ 이름 정규화: '화속성강화' == '화속성 강화' 통일
   static normalizeName(name) {
     return String(name || "")
       .trim()
       .replace(/\s+/g, "");
   }
-
-  // --- 스탯 분류 & 가중치 매핑(Δ×가중치에 사용) ---
   static isAttackStatKey(key) {
     const k = this.normalizeName(key);
     return k === "물리공격력" || k === "마법공격력" || k === "독립공격력";
@@ -86,11 +71,8 @@ class Enchants {
     if (k === "공격력증폭") return this.WEIGHTS["공격력 증폭"] ?? 0;
     if (k === "최종데미지") return this.WEIGHTS["최종 데미지"] ?? 0;
     if (k === "모험가명성" || k === "모험가 명성") return 0;
-    // 혹시 개별 키에 가중치를 직접 줄 때 대비(정규화 없이 원본 키로 매핑)
     return this.WEIGHTS[key] ?? 0;
   }
-
-  // status 배열 -> { [name]: sumValue } 맵으로 변환
   static toStatMap(statusList = []) {
     const map = {};
     for (const s of statusList || []) {
@@ -102,121 +84,105 @@ class Enchants {
     return map;
   }
 
-  static pickEffectiveElement(map = {}) {
-    const keys = [
-      "모든속성강화",
-      "화속성강화",
-      "수속성강화",
-      "명속성강화",
-      "암속성강화",
-    ];
-    let bestKey = null;
-    let bestVal = 0;
-    for (const k of keys) {
-      const v = Number(map[k] || 0);
+  // 캐릭터 status 배열에서 "가장 높은 속강 타입" 반환 (예: "화속성강화")
+  static pickTopElementKeyFromStatus(statusList = []) {
+    const m = this.toStatMap(statusList);
+    let bestKey = null,
+      bestVal = -Infinity;
+    for (const k of this.ELEMENT_ENH_KEYS) {
+      const v = Number(m[k] || 0);
       if (v > bestVal) {
         bestVal = v;
         bestKey = k;
       }
     }
-    return { key: bestKey, value: bestVal };
+    return bestKey;
   }
 
-  // diff 계산 시, 원소는 '속성강화(유효)' 하나로만 비교하도록 접기
-  static collapseElementForDiff(map = {}) {
-    const m = { ...map };
-    const { value } = this.pickEffectiveElement(m);
-
-    const elemKeys = [
-      "모든속성강화",
-      "화속성강화",
-      "수속성강화",
-      "명속성강화",
-      "암속성강화",
-    ];
-    for (const k of elemKeys) delete m[k];
-
-    m["속성강화(유효)"] = value > 0 ? value : 0;
-    return m;
+  // (모든속성강화 + 각 원소강화) 를 더해 원소 중 최댓값을 유효 속강으로 계산
+  static effectiveElementBest(map = {}, baseline = {}) {
+    const vAll = Number(map["모든속성강화"] || 0);
+    let best = 0;
+    for (const k of this.ELEMENT_ENH_KEYS) {
+      const base = Number(baseline[k] || 0); // 기본은 0 사용 (baseline 미반영)
+      const v = base + Number(map[k] || 0) + vAll; // 각 원소에 '모속강'을 가산
+      if (v > best) best = v;
+    }
+    return best;
   }
 
-  // ✅ 카테고리당 최고 델타만 점수에 반영하는 diff
+  // -------- diff (Δ×가중치) --------
+  // baseline 보정 없이, 현재 마부 vs 후보 마부만 비교
   static diffStatusArrays(currentStatus = [], recStatus = []) {
     const curRaw = this.toStatMap(currentStatus);
     const recRaw = this.toStatMap(recStatus);
 
-    const cur = this.collapseElementForDiff(curRaw); // 원소는 '속성강화(유효)' 하나만 남김
-    const rec = this.collapseElementForDiff(recRaw);
+    // 유효 속강 = (각 원소강화 + 모든속성강화)의 최대값
+    const curEffElem = this.effectiveElementBest(curRaw, {}); // baseline 미사용
+    const recEffElem = this.effectiveElementBest(recRaw, {});
+    const elemDelta = recEffElem - curEffElem;
 
-    // 합집합 키
-    const keys = new Set([...Object.keys(cur), ...Object.keys(rec)]);
+    const byStat = {
+      "속성강화(유효)": {
+        current: curEffElem,
+        recommended: recEffElem,
+        delta: elemDelta,
+      },
+    };
 
-    const byStat = {};
+    // 카테고리 최대치 반영: 능력치 1개, 공격력 1개만 점수화
     let bestAbility = { key: null, delta: 0 };
     let bestAttack = { key: null, delta: 0 };
 
+    const keys = new Set([...Object.keys(curRaw), ...Object.keys(recRaw)]);
     for (const k of keys) {
-      // 모험가 명성은 제외
-      if (k === "모험가명성" || k === "모험가 명성") continue;
+      const nk = this.normalizeName(k);
+      if (nk === "모험가명성") continue;
+      if (nk === "모든속성강화" || this.ELEMENT_ENH_KEYS.includes(nk)) continue; // 원소는 유효값으로만 처리
 
-      const c = Number(cur[k] || 0);
-      const r = Number(rec[k] || 0);
+      const c = Number(curRaw[k] || 0);
+      const r = Number(recRaw[k] || 0);
       if (!c && !r) continue;
 
       const delta = r - c;
       byStat[k] = { current: c, recommended: r, delta };
 
-      const nk = this.normalizeName(k);
       if (this.isAbilityStatKey(nk)) {
-        if (bestAbility.key === null || delta > bestAbility.delta) {
+        if (bestAbility.key === null || delta > bestAbility.delta)
           bestAbility = { key: k, delta };
-        }
       } else if (this.isAttackStatKey(nk)) {
-        if (bestAttack.key === null || delta > bestAttack.delta) {
+        if (bestAttack.key === null || delta > bestAttack.delta)
           bestAttack = { key: k, delta };
-        }
       }
     }
 
-    const elemDelta = byStat["속성강화(유효)"]?.delta ?? 0;
+    const elemW = this.WEIGHTS._속성강화 ?? 25;
+    const abilityW = this.WEIGHTS._능력치 ?? 0.6;
+    const attackW = this.WEIGHTS._공격력 ?? 3;
 
-    // 🔥 점수 계산: 원소1 + 능력치 최대1 + 공격력 최대1 + 나머지(가중치 있는 키들) 합
-    const elemW = this.weightForStatKey("속성강화(유효)");
-    const abilityW = this.WEIGHTS._능력치 ?? 0;
-    const attackW = this.WEIGHTS._공격력 ?? 0;
-
-    const elemScore = elemW * elemDelta;
+    const elemScore = elemW * (elemDelta || 0);
     const abilityScore = abilityW * (bestAbility.delta || 0);
     const attackScore = attackW * (bestAttack.delta || 0);
 
-    // 그 외(능력치/공격력/원소 제외) 키는 전부 개별 합산
+    // 나머지(공증/최데 등)는 개별 합산
     let othersScore = 0;
     for (const [k, v] of Object.entries(byStat)) {
+      const nk = this.normalizeName(k);
       if (
         k === "속성강화(유효)" ||
-        this.isAbilityStatKey(this.normalizeName(k)) ||
-        this.isAttackStatKey(this.normalizeName(k))
-      ) {
+        this.isAbilityStatKey(nk) ||
+        this.isAttackStatKey(nk)
+      )
         continue;
-      }
       const w = this.weightForStatKey(k);
       if (w) othersScore += w * (v.delta || 0);
     }
 
     const deltaScore = elemScore + abilityScore + attackScore + othersScore;
-
-    return {
-      byStat,
-      meta: {
-        elemDelta,
-        // bestAbility, // { key, delta }
-        // bestAttack, // { key, delta }
-        deltaScore,
-      },
-    };
+    return { byStat, meta: { elemDelta, deltaScore } };
   }
 
-  // 특정 아이템의 주어진 upgrade 데이터(기본: 마지막 값)만 뽑아 candidate 생성
+  // -------- catalog → candidates --------
   static candidateFromItemForSlot(item, slot, targetUpgrade = null) {
     const enchArr = item?.cardInfo?.enchant || [];
     if (!enchArr.length) return null;
@@ -227,7 +193,6 @@ class Enchants {
     } else {
       chosen = enchArr[enchArr.length - 1]; // 배열 마지막 = 풀업
     }
-
     if (!chosen) {
       chosen = enchArr.reduce(
         (a, b) => ((a?.upgrade ?? 0) > (b?.upgrade ?? 0) ? a : b),
@@ -243,12 +208,11 @@ class Enchants {
       slotId: slot.slotId,
       slotName: slot.slotName,
       upgrade: chosen.upgrade ?? 0,
-      status, // ⬅️ score 필드 제거
+      status,
       rarity: item.itemRarity,
     };
   }
 
-  // 슬롯 후보(풀업) 수집. 정렬은 evaluate에서 Δ점수 기준으로 수행
   static getMaxUpgradeCandidatesForSlot(slotId) {
     const { enchants } = this.loadEnchantCatalog();
     const out = [];
@@ -263,24 +227,42 @@ class Enchants {
     return out;
   }
 
-  // ✅ 장비 한 부위 평가: diff 기반 점수만 사용, recommended에서 currentStats/status 제거
-  static evaluateEnchantForEquipment(equip, limit = 3) {
+  // -------- evaluation --------
+  // ctx.filterElemKey 가 있으면, 그 원소 or '모든속성강화' 카드만 남김
+  static evaluateEnchantForEquipment(equip, limit = 3, ctx = {}) {
     const slotId = equip?.slotId;
-
-    // 슬롯 단위의 현재 스탯 맵 (여기만 유지)
     const currentStats = this.toStatMap(equip?.enchant?.status || []);
-
     const candidates = this.getMaxUpgradeCandidatesForSlot(slotId);
 
-    const enriched = candidates.map((c) => {
+    const filterKey = ctx.filterElemKey
+      ? this.normalizeName(ctx.filterElemKey)
+      : null;
+
+    const enriched = [];
+    for (const c of candidates) {
       const recStats = this.toStatMap(c.status);
+
+      if (filterKey) {
+        // 원소 강화가 들어있는지(모속/개별 원소) 먼저 체크
+        const hasAll = Number(recStats["모든속성강화"] || 0) > 0;
+        const hasAnyElem =
+          hasAll ||
+          this.ELEMENT_ENH_KEYS.some((k) => Number(recStats[k] || 0) > 0);
+
+        // 원소가 있는 카드만 엄격히 필터; 원소가 전혀 없는 카드는 허용
+        const matchesTop = hasAll || Number(recStats[filterKey] || 0) > 0;
+
+        if (hasAnyElem && !matchesTop) {
+          continue; // 다른 원소 강화 카드면 제외
+        }
+      }
+
       const diff = this.diffStatusArrays(
         equip?.enchant?.status || [],
         c.status
       );
 
-      // status 제거하고 필요한 필드만 구성
-      return {
+      enriched.push({
         itemId: c.itemId,
         itemName: c.itemName,
         slotId: c.slotId,
@@ -288,27 +270,31 @@ class Enchants {
         upgrade: c.upgrade,
         rarity: c.rarity,
         score: diff.meta.deltaScore, // Δ×가중치 점수
-        recStats, // 추천 합산 스탯 맵
-        diff, // { byStat, meta }
-      };
-    });
+        recStats,
+        diff,
+      });
+    }
 
     const better = enriched
       .filter((x) => x.score > 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, Math.max(0, Number(limit) || 3));
 
+    console.log(equip);
+
     return {
       slotId,
       slotName: equip?.slotName,
+      equippedItemId: equip?.itemId,
       equippedItemName: equip?.itemName,
-      currentStats, // ⬅️ 슬롯 단 한 번만 제공
+      currentStats, // 장비의 현재 마부만
       recommended: better,
     };
   }
-  static evaluateAllEquipment(equipmentList = [], limit = 3) {
+
+  static evaluateAllEquipment(equipmentList = [], limit = 3, ctx = {}) {
     return equipmentList.map((eq) =>
-      this.evaluateEnchantForEquipment(eq, limit)
+      this.evaluateEnchantForEquipment(eq, limit, ctx)
     );
   }
 }
