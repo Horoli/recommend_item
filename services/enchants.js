@@ -280,8 +280,6 @@ class Enchants {
       .sort((a, b) => b.score - a.score)
       .slice(0, Math.max(0, Number(limit) || 3));
 
-    console.log(equip);
-
     return {
       slotId,
       slotName: equip?.slotName,
