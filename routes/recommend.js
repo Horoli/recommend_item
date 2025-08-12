@@ -48,14 +48,20 @@ module.exports = async function (fastify) {
       });
 
       // 4) 카드만 필터
-      const cardOnly = evals
-        .map((slot) => ({
-          ...slot,
-          recommended: (slot.recommended || []).filter((r) =>
-            (r.itemName || "").includes("카드")
-          ),
-        }))
-        .filter((slot) => slot.recommended.length > 0);
+      // const cardOnly = evals.map((slot) => ({
+      //   ...slot,
+      //   recommended: (slot.recommended || []).filter((r) =>
+      //     (r.itemName || "").includes("카드")
+      //   ),
+      // }))
+      // .filter((slot) => slot.recommended.length > 0);
+
+      const cardOnly = evals.map((slot) => ({
+        ...slot,
+        recommended: (slot.recommended || []).filter((r) =>
+          (r.itemName || "").includes("카드")
+        ),
+      }));
 
       // 5) 가격 조회
       const recItemIds = new Set();
@@ -73,45 +79,62 @@ module.exports = async function (fastify) {
       );
 
       // 6) 가격 주입 + 무가/누락 제거 (recommended.currentStats 사용 안 함)
-      const needs = cardOnly
-        .map((slot) => {
-          const withPrice = slot.recommended
-            .map((r) => {
-              const price = priceMapForRecommend.get(r.itemId) ?? null;
-              return {
-                ...r, // itemId, itemName, slotId, slotName, upgrade, rarity, score, recStats, diff
-                price, // { lowestPrice, ... }
-              };
-            })
-            .filter(
-              (r) =>
-                r.price &&
-                Number.isFinite(r.price.lowestPrice) &&
-                r.price.lowestPrice > 0
-            );
+      const addRecommendedEquipObj = cardOnly.map((slot) => {
+        const withPrice = slot.recommended
+          .map((r) => {
+            const price = priceMapForRecommend.get(r.itemId) ?? null;
+            return {
+              ...r, // itemId, itemName, slotId, slotName, upgrade, rarity, score, recStats, diff
+              price, // { lowestPrice, ... }
+            };
+          })
+          .filter(
+            (r) =>
+              r.price &&
+              Number.isFinite(r.price.lowestPrice) &&
+              r.price.lowestPrice > 0
+          );
 
-          // 가격 필터 후 점수 기준 재정렬
-          withPrice.sort((a, b) => b.score - a.score);
+        // 가격 필터 후 점수 기준 재정렬
+        withPrice.sort((a, b) => b.score - a.score);
 
-          return {
-            slotId: slot.slotId,
-            slotName: slot.slotName,
-            equippedItemId: slot.equippedItemId,
-            equippedItemName: slot.equippedItemName,
-            currentStats: slot.currentStats, // ✅ 슬롯에만 유지
-            recommended: withPrice, // ✅ 항목에는 currentStats 없음
-          };
-        })
-        .filter((slot) => slot.recommended.length > 0);
+        return {
+          slotId: slot.slotId,
+          slotName: slot.slotName,
+          equippedItemId: slot.equippedItemId,
+          equippedItemName: slot.equippedItemName,
+          currentStats: slot.currentStats, // ✅ 슬롯에만 유지
+          recommended: withPrice, // ✅ 항목에는 currentStats 없음
+        };
+      });
+      // .filter((slot) => slot.recommended.length > 0);
+
+      const upgradeNeededSlots = addRecommendedEquipObj.filter(
+        (obj) => obj.recommended.length > 0
+      );
+
+      const enchantRecommendationsObj = Object.fromEntries(
+        addRecommendedEquipObj.map((s) => [
+          s.slotId,
+          {
+            slotId: s.slotId,
+            slotName: s.slotName,
+            equippedItemName: s.equippedItemName,
+            currentStats: s.currentStats,
+            recommended: s.recommended,
+          },
+        ])
+      );
 
       const response = {
         character: pickCharMeta(equipObj),
         summary: {
           totalSlots: equipment.length,
-          upgradeNeededSlots: needs.length,
+          upgradeNeededSlots: upgradeNeededSlots.length, // 추천 있는 슬롯 수만 집계
+
           recommendedPerSlot: safeTopN,
         },
-        enchantRecommendations: needs, // price: {lowestPrice, ...}, score: Δ×가중치
+        enchantRecommendations: enchantRecommendationsObj, // price: {lowestPrice, ...}, score: Δ×가중치
       };
 
       // 7) 예산 플랜(MCKP) — Δ점수와 가격만으로 구성
@@ -125,7 +148,7 @@ module.exports = async function (fastify) {
 
         // slotMap: Map<slotId, Array<candidate>>
         const slotMap = new Map();
-        for (const slot of needs) {
+        for (const slot of upgradeNeededSlots) {
           const cands = slot.recommended
             .map((r) => ({
               slotId: slot.slotId,
@@ -218,17 +241,21 @@ function summarizeBestPerSlot(cands) {
         : -Infinity;
     if (!prev || eNow > ePrev) best.set(c.slotId, c);
   }
-  return Array.from(best.values()).map((x) => ({
-    slotId: x.slotId,
-    slotName: x.slotName,
-    itemId: x.itemId,
-    itemName: x.itemName,
-    upgrade: x.upgrade,
-    price: x.price,
-    deltaScore: x.deltaScore,
-    efficiency:
-      x.price && x.price.lowestPrice
-        ? x.deltaScore / x.price.lowestPrice
-        : null,
-  }));
+  const out = {};
+  for (const x of best.values()) {
+    out[x.slotId] = {
+      slotId: x.slotId,
+      slotName: x.slotName,
+      itemId: x.itemId,
+      itemName: x.itemName,
+      upgrade: x.upgrade, // 풀업
+      price: x.price, // { lowestPrice, ... }
+      deltaScore: x.deltaScore,
+      efficiency:
+        x.price && x.price.lowestPrice
+          ? x.deltaScore / x.price.lowestPrice
+          : null,
+    };
+  }
+  return out;
 }
