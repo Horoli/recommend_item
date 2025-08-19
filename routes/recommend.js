@@ -19,12 +19,27 @@ module.exports = async function (fastify) {
       const safeTopN =
         Number.isFinite(topN) && topN > 0 ? Math.min(topN, 50) : 3;
 
+      const bufferList = [
+        "眞 뮤즈",
+        "眞 패러메딕",
+        "眞 인챈트리스",
+        "眞 크루세이더",
+      ];
+
       // 1) 캐릭터 식별
       let cid = characterId;
       if (!cid) {
         const found = await DfApi.findCharacter(server, name);
+
         if (!found?.characterId)
           return reply.status(404).send({ error: "character not found" });
+        //  지금 버전에선 버퍼는 제외
+        const getJobGrowName = found.raw.jobGrowName;
+
+        const characterIsBuffer = bufferList.includes(getJobGrowName);
+        if (characterIsBuffer)
+          return reply.status(404).send({ error: "input character is buffer" });
+
         cid = found.characterId;
       }
 
@@ -119,6 +134,7 @@ module.exports = async function (fastify) {
           {
             slotId: s.slotId,
             slotName: s.slotName,
+            equippedItemId: s.equippedItemId,
             equippedItemName: s.equippedItemName,
             currentStats: s.currentStats,
             recommended: s.recommended,
@@ -205,6 +221,9 @@ module.exports = async function (fastify) {
         response.bestPerSlot = summarizeBestPerSlot(flattened);
       }
 
+      if (!!gold) {
+        return reply.send(response.plan);
+      }
       return reply.send(response);
     } catch (err) {
       request.log.error(err);
