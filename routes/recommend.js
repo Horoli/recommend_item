@@ -2,8 +2,55 @@
 const DfApi = require("../services/df_api");
 const Enchants = require("../services/enchants");
 const Optimizer = require("../services/optimizer");
+const axios = require("axios");
 
 module.exports = async function (fastify) {
+  fastify.get("/charimage", async (request, reply) => {
+    try {
+      const { type, server, id, zoom } = request.query || {};
+      // if (!server || !id) {
+      //   return reply.code(400).send({ error: "Missing param: server, id" });
+      // }
+
+      let url = "";
+
+      if (type === "item") {
+        url = `https://img-api.neople.co.kr/df/items/${encodeURIComponent(id)}`;
+      }
+
+      if (type === "char") {
+        url =
+          `https://img-api.neople.co.kr/df/servers/${encodeURIComponent(
+            server
+          )}` +
+          `/characters/${encodeURIComponent(id)}` +
+          (zoom ? `?zoom=${encodeURIComponent(zoom)}` : "");
+      }
+
+      const upstream = await axios.get(url, {
+        responseType: "stream",
+        headers: { "User-Agent": "dnf_growth_recommender/1.0" },
+      });
+
+      // CORS/캐시/컨텐츠 타입
+      reply.header("Access-Control-Allow-Origin", "*");
+      reply.header("Cache-Control", "public, max-age=3600, s-maxage=3600");
+      if (upstream.headers["content-type"]) {
+        reply.header("Content-Type", upstream.headers["content-type"]);
+      }
+      if (upstream.headers.etag) reply.header("ETag", upstream.headers.etag);
+
+      return reply.send(upstream.data); // ✅ 스트리밍 그대로 전송
+    } catch (err) {
+      const status = err.response?.status ?? 502;
+      return reply.code(status).send({
+        error: "Upstream fetch failed",
+        status,
+      });
+    }
+  });
+
+  //
   fastify.get("/recommend", async (request, reply) => {
     try {
       const { server, characterId, name, gold, top, limit, sortMode } =
@@ -221,9 +268,9 @@ module.exports = async function (fastify) {
         response.bestPerSlot = summarizeBestPerSlot(flattened);
       }
 
-      if (!!gold) {
-        return reply.send(response.plan);
-      }
+      // if (!!gold) {
+      //   return reply.send(response.plan);
+      // }
       return reply.send(response);
     } catch (err) {
       request.log.error(err);

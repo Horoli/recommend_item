@@ -2,6 +2,24 @@
 const Fastify = require("fastify");
 const fastify = Fastify({ logger: true });
 
+fastify.addHook("preHandler", async (request, reply) => {
+  reply.header("Access-Control-Allow-Origin", "*");
+  reply.header(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  reply.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+
+  // OPTIONS 요청 처리
+  if (request.method === "OPTIONS") {
+    reply.status(200).send();
+    return;
+  }
+});
+
 fastify.get("/", async () => ({ ok: true, msg: "DF Recommend MVP" }));
 
 // 기존 /enchants/* 라우트를 쓰지 않을 거면 주석 처리하고,
