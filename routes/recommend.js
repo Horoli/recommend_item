@@ -3,18 +3,51 @@ const DfApi = require("../services/df_api");
 const Enchants = require("../services/enchants");
 const Optimizer = require("../services/optimizer");
 const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
+
+// 캐시 디렉토리 설정
+const CACHE_DIR = path.join(__dirname, "../cache/items");
+
+// 캐시 디렉토리 생성
+if (!fs.existsSync(CACHE_DIR)) {
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+}
 
 module.exports = async function (fastify) {
-  fastify.get("/charimage", async (request, reply) => {
+  fastify.get("/image", async (request, reply) => {
     try {
       const { type, server, id, zoom } = request.query || {};
-      // if (!server || !id) {
-      //   return reply.code(400).send({ error: "Missing param: server, id" });
-      // }
+      if (!id) {
+        return reply.code(400).send({ error: "Missing param: id" });
+      }
+
+      if (type === "char" && !server) {
+        return reply.code(400).send({ error: "Missing param: server" });
+      }
 
       let url = "";
+      let filePath = null;
 
       if (type === "item") {
+        // 파일명을 안전하게 처리 (특수문자 제거)
+        const safeId = id.replace(/[^a-zA-Z0-9_-]/g, "_");
+        filePath = path.join(CACHE_DIR, `${safeId}.png`);
+
+        // 캐시된 파일이 있는지 확인
+        if (fs.existsSync(filePath)) {
+          // 캐시된 파일 반환
+          const stats = fs.statSync(filePath);
+
+          reply.header("Access-Control-Allow-Origin", "*");
+          reply.header("Cache-Control", "public, max-age=3600, s-maxage=3600");
+          reply.header("Content-Type", "image/png");
+          reply.header("Content-Length", stats.size);
+
+          const stream = fs.createReadStream(filePath);
+          return reply.send(stream);
+        }
+
         url = `https://img-api.neople.co.kr/df/items/${encodeURIComponent(id)}`;
       }
 
@@ -39,6 +72,20 @@ module.exports = async function (fastify) {
         reply.header("Content-Type", upstream.headers["content-type"]);
       }
       if (upstream.headers.etag) reply.header("ETag", upstream.headers.etag);
+
+      // type이 item인 경우 파일시스템에 저장
+      if (type === "item" && filePath) {
+        const writeStream = fs.createWriteStream(filePath);
+
+        // 스트림을 파일에 저장하면서 클라이언트에도 전송
+        upstream.data.pipe(writeStream);
+
+        // 에러 핸들링
+        writeStream.on("error", (err) => {
+          console.error("File write error:", err);
+          // 파일 저장 실패해도 응답은 계속 진행
+        });
+      }
 
       return reply.send(upstream.data); // ✅ 스트리밍 그대로 전송
     } catch (err) {
