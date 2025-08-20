@@ -18,8 +18,9 @@ module.exports = async function (fastify) {
   fastify.get("/image", async (request, reply) => {
     try {
       const { type, server, id, zoom } = request.query || {};
-      if (!id) {
-        return reply.code(400).send({ error: "Missing param: id" });
+
+      if (!type || !id) {
+        return reply.code(400).send({ error: "Missing param: id or type" });
       }
 
       if (type === "char" && !server) {
@@ -178,14 +179,11 @@ module.exports = async function (fastify) {
         for (const r of slot.recommended)
           if (r?.itemId) recItemIds.add(r.itemId);
 
-      const priceMapForRecommend = await Optimizer.fetchPricesByItemId(
-        [...recItemIds],
-        DfApi,
-        {
-          concurrency: Number(process.env.PRICE_CONCURRENCY ?? 8),
-          timeoutMs: Number(process.env.PRICE_TIMEOUT_MS ?? 6000),
-        }
-      );
+      const priceMapForRecommend = await Optimizer.fetchPricesByItemId([
+        ...recItemIds,
+      ]);
+
+      // console.log(priceMapForRecommend);
 
       // 6) 가격 주입 + 무가/누락 제거 (recommended.currentStats 사용 안 함)
       const addRecommendedEquipObj = cardOnly.map((slot) => {

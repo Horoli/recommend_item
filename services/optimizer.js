@@ -1,59 +1,64 @@
 // services/optimizer.js
-const TTLCache = require("./cache");
-let pLimit;
-(async () => {
-  pLimit = (await import("p-limit")).default;
-})();
-
-const priceCache = new TTLCache(
-  Number(process.env.PRICE_TTL_MS ?? 600_000), // 10분
-  Number(process.env.PRICE_CACHE_MAX ?? 5000)
-);
+const fs = require("fs/promises");
+const path = require("path");
 
 class Optimizer {
-  static wait(ms) {
-    return new Promise((r) => setTimeout(r, ms));
+  static async fetchPricesByItemId(itemIds) {
+    if (!Array.isArray(itemIds) || itemIds.length === 0) {
+      return new Map();
+    }
+
+    const unique = [...new Set(itemIds.filter((id) => id != null))];
+    const priceMap = new Map();
+
+    // 캐시 파일 경로
+    const cacheFilePath = path.resolve(
+      __dirname,
+      "../data/auction_prices/latest.json"
+    );
+
+    try {
+      // 캐시 파일에서 데이터 로드
+      const cacheData = await fs.readFile(cacheFilePath, "utf8");
+
+      const { items = {}, lastUpdated } = JSON.parse(cacheData);
+
+      console.log(
+        `Loaded price cache with ${
+          Object.keys(items).length
+        } items (updated: ${lastUpdated})`
+      );
+
+      // 각 아이템 ID에 대해 캐시에서 가격 정보 조회
+      unique.forEach((itemId) => {
+        const cachedItem = items[itemId];
+
+        if (cachedItem && this._isValidPrice(cachedItem.lowestPrice)) {
+          priceMap.set(itemId, {
+            lowestPrice: cachedItem.lowestPrice,
+            fetchedAt: cachedItem.fetchedAt || lastUpdated,
+            source: "file_cache",
+            itemId,
+          });
+        } else {
+          priceMap.set(itemId, null);
+        }
+      });
+    } catch (error) {
+      console.warn(
+        `Failed to load price cache from ${cacheFilePath}:`,
+        error.message
+      );
+
+      // 캐시 로드 실패 시 모든 아이템을 null로 설정
+      unique.forEach((itemId) => priceMap.set(itemId, null));
+    }
+
+    return priceMap;
   }
 
-  static async fetchPricesByItemId(
-    itemIds,
-    dfApi,
-    { concurrency = 8, timeoutMs = 6000 } = {}
-  ) {
-    const unique = Array.from(new Set(itemIds));
-    const limit = pLimit(concurrency);
-    const map = new Map();
-
-    // 캐시 히트 먼저 채우기
-    const need = [];
-    for (const id of unique) {
-      const cached = priceCache.get(id);
-      if (cached) map.set(id, cached);
-      else need.push(id);
-    }
-    if (need.length === 0) return map;
-
-    // 병렬 호출 (부분 실패 허용)
-    const tasks = need.map((id) =>
-      limit(async () => {
-        try {
-          const controller = new AbortController();
-          const t = setTimeout(() => controller.abort(), timeoutMs);
-          const info = await dfApi.getAuctionLowestPrice(id, {
-            signal: controller.signal,
-          });
-          clearTimeout(t);
-          if (info) {
-            priceCache.set(id, info);
-            map.set(id, info);
-          } else map.set(id, null);
-        } catch {
-          map.set(id, null);
-        }
-      })
-    );
-    await Promise.allSettled(tasks);
-    return map;
+  static _isValidPrice(price) {
+    return typeof price === "number" && !isNaN(price) && price >= 0;
   }
 
   // 동일 슬롯 내 지배 제거
