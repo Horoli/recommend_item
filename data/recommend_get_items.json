@@ -1151,6 +1151,78 @@
       "itemAvailableLevel": 1,
       "fame": 1123,
       "category": "titles"
+    },
+    {
+      "itemId": "012982b7a8ac64c1254465f4b4a2df5f",
+      "itemName": "선별자 룬디어 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "enchants"
+    },
+    {
+      "itemId": "fcb3173136048504b6fabf574eac94ce",
+      "itemName": "선별자 룬디어 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "enchants"
+    },
+    {
+      "itemId": "aefd43bba0bdfee5203fde4a954b6e59",
+      "itemName": "더 파이퍼 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "enchants"
+    },
+    {
+      "itemId": "9c88e4d216a1bca717f605a76b3713f0",
+      "itemName": "더 파이퍼 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "enchants"
+    },
+    {
+      "itemId": "fabcd3a01597550d74739baca0cd60d3",
+      "itemName": "역병을 담은 눈, 옴마 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "enchants"
+    },
+    {
+      "itemId": "d25d84b3820a074eb639b33b28257012",
+      "itemName": "역병을 담은 눈, 옴마 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "enchants"
     }
   ]
 }

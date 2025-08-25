@@ -1,8 +1,8 @@
 // scripts/update_recommend_items.js
-require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const fetch = require("node-fetch"); // v2 권장 (v3는 ESM 전용)
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 
 const API_KEY = process.env.DP_API_KEY; // TODO: 실제 키로 교체
 const BASE_URL = "https://api.neople.co.kr/df";
@@ -158,6 +158,7 @@ async function fetchRecommendItemsOnlyMissing(missingByCat) {
       const url = `${BASE_URL}/items?itemName=${encodeURIComponent(
         itemName
       )}&wordType=front&limit=30&apikey=${API_KEY}`;
+      console.log(url);
       console.log(`🔍 [${category}] 아이템 검색: ${itemName}`);
       const res = await fetch(url);
       if (!res.ok) {

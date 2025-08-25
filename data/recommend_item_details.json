@@ -9061,6 +9061,754 @@
         "dungeon": null,
         "shop": null
       }
+    },
+    {
+      "itemId": "012982b7a8ac64c1254465f4b4a2df5f",
+      "itemName": "선별자 룬디어 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "itemExplain": "",
+      "itemExplainDetail": "",
+      "itemFlavorText": "어차피 종말은 피할 수 없어요. 끝은 정해져 있으니까.",
+      "fame": 221,
+      "setItemId": null,
+      "setItemName": null,
+      "itemStatus": [
+        {
+          "name": "모험가 명성",
+          "value": 221
+        }
+      ],
+      "cardInfo": {
+        "slots": [
+          {
+            "slotId": "SUPPORT",
+            "slotName": "보조장비"
+          }
+        ],
+        "enchant": [
+          {
+            "status": [
+              {
+                "name": "물리 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "마법 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "모든 속성 강화",
+                "value": 10
+              },
+              {
+                "name": "공격력 증폭",
+                "value": "3%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 0
+          },
+          {
+            "status": [
+              {
+                "name": "물리 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "마법 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "모든 속성 강화",
+                "value": 11
+              },
+              {
+                "name": "공격력 증폭",
+                "value": "3%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 1
+          },
+          {
+            "status": [
+              {
+                "name": "물리 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "마법 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "모든 속성 강화",
+                "value": 12
+              },
+              {
+                "name": "공격력 증폭",
+                "value": "3%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 221
+              }
+            ],
+            "upgrade": 2
+          }
+        ]
+      },
+      "obtainInfo": {
+        "dungeon": null,
+        "shop": null
+      }
+    },
+    {
+      "itemId": "fcb3173136048504b6fabf574eac94ce",
+      "itemName": "선별자 룬디어 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "itemExplain": "",
+      "itemExplainDetail": "",
+      "itemFlavorText": "어차피 종말은 피할 수 없어요. 끝은 정해져 있으니까.",
+      "fame": 221,
+      "setItemId": null,
+      "setItemName": null,
+      "itemStatus": [
+        {
+          "name": "모험가 명성",
+          "value": 221
+        }
+      ],
+      "cardInfo": {
+        "slots": [
+          {
+            "slotId": "SUPPORT",
+            "slotName": "보조장비"
+          }
+        ],
+        "enchant": [
+          {
+            "status": [
+              {
+                "name": "물리 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "마법 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "모든 속성 강화",
+                "value": 10
+              },
+              {
+                "name": "공격력 증폭",
+                "value": "3%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 0
+          },
+          {
+            "status": [
+              {
+                "name": "물리 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "마법 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "모든 속성 강화",
+                "value": 11
+              },
+              {
+                "name": "공격력 증폭",
+                "value": "3%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 1
+          },
+          {
+            "status": [
+              {
+                "name": "물리 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "마법 크리티컬 히트",
+                "value": "3.0%"
+              },
+              {
+                "name": "모든 속성 강화",
+                "value": 12
+              },
+              {
+                "name": "공격력 증폭",
+                "value": "3%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 221
+              }
+            ],
+            "upgrade": 2
+          }
+        ]
+      },
+      "obtainInfo": {
+        "dungeon": null,
+        "shop": null
+      }
+    },
+    {
+      "itemId": "aefd43bba0bdfee5203fde4a954b6e59",
+      "itemName": "더 파이퍼 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "itemExplain": "",
+      "itemExplainDetail": "",
+      "itemFlavorText": "당신도 곧 구원해 드리겠습니다.",
+      "fame": 210,
+      "setItemId": null,
+      "setItemName": null,
+      "itemStatus": [
+        {
+          "name": "모험가 명성",
+          "value": 210
+        }
+      ],
+      "cardInfo": {
+        "slots": [
+          {
+            "slotId": "WEAPON",
+            "slotName": "무기"
+          }
+        ],
+        "enchant": [
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 13
+              },
+              {
+                "name": "물리 공격력",
+                "value": 20
+              },
+              {
+                "name": "마법 공격력",
+                "value": 20
+              },
+              {
+                "name": "독립 공격력",
+                "value": 20
+              },
+              {
+                "name": "모험가 명성",
+                "value": 196
+              }
+            ],
+            "upgrade": 0
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 14
+              },
+              {
+                "name": "물리 공격력",
+                "value": 25
+              },
+              {
+                "name": "마법 공격력",
+                "value": 25
+              },
+              {
+                "name": "독립 공격력",
+                "value": 25
+              },
+              {
+                "name": "모험가 명성",
+                "value": 196
+              }
+            ],
+            "upgrade": 1
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 15
+              },
+              {
+                "name": "물리 공격력",
+                "value": 30
+              },
+              {
+                "name": "마법 공격력",
+                "value": 30
+              },
+              {
+                "name": "독립 공격력",
+                "value": 30
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 2
+          }
+        ]
+      },
+      "obtainInfo": {
+        "dungeon": null,
+        "shop": null
+      }
+    },
+    {
+      "itemId": "9c88e4d216a1bca717f605a76b3713f0",
+      "itemName": "더 파이퍼 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "itemExplain": "",
+      "itemExplainDetail": "",
+      "itemFlavorText": "당신도 곧 구원해 드리겠습니다.",
+      "fame": 210,
+      "setItemId": null,
+      "setItemName": null,
+      "itemStatus": [
+        {
+          "name": "모험가 명성",
+          "value": 210
+        }
+      ],
+      "cardInfo": {
+        "slots": [
+          {
+            "slotId": "WEAPON",
+            "slotName": "무기"
+          }
+        ],
+        "enchant": [
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 13
+              },
+              {
+                "name": "물리 공격력",
+                "value": 20
+              },
+              {
+                "name": "마법 공격력",
+                "value": 20
+              },
+              {
+                "name": "독립 공격력",
+                "value": 20
+              },
+              {
+                "name": "모험가 명성",
+                "value": 196
+              }
+            ],
+            "upgrade": 0
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 14
+              },
+              {
+                "name": "물리 공격력",
+                "value": 25
+              },
+              {
+                "name": "마법 공격력",
+                "value": 25
+              },
+              {
+                "name": "독립 공격력",
+                "value": 25
+              },
+              {
+                "name": "모험가 명성",
+                "value": 196
+              }
+            ],
+            "upgrade": 1
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 15
+              },
+              {
+                "name": "물리 공격력",
+                "value": 30
+              },
+              {
+                "name": "마법 공격력",
+                "value": 30
+              },
+              {
+                "name": "독립 공격력",
+                "value": 30
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 2
+          }
+        ]
+      },
+      "obtainInfo": {
+        "dungeon": null,
+        "shop": null
+      }
+    },
+    {
+      "itemId": "fabcd3a01597550d74739baca0cd60d3",
+      "itemName": "역병을 담은 눈, 옴마 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "itemExplain": "",
+      "itemExplainDetail": "",
+      "itemFlavorText": "인간은 요괴를 두려워하고, 요괴는 인간을 믿지 않아. 그렇게 서로를 영원히 모른 채 살아가겠지.",
+      "fame": 210,
+      "setItemId": null,
+      "setItemName": null,
+      "itemStatus": [
+        {
+          "name": "모험가 명성",
+          "value": 210
+        }
+      ],
+      "cardInfo": {
+        "slots": [
+          {
+            "slotId": "EARRING",
+            "slotName": "귀걸이"
+          }
+        ],
+        "enchant": [
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 12
+              },
+              {
+                "name": "힘",
+                "value": 70
+              },
+              {
+                "name": "지능",
+                "value": 70
+              },
+              {
+                "name": "체력",
+                "value": 70
+              },
+              {
+                "name": "정신력",
+                "value": 70
+              },
+              {
+                "name": "모험가 명성",
+                "value": 178
+              }
+            ],
+            "upgrade": 0
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 13
+              },
+              {
+                "name": "힘",
+                "value": 70
+              },
+              {
+                "name": "지능",
+                "value": 70
+              },
+              {
+                "name": "체력",
+                "value": 70
+              },
+              {
+                "name": "정신력",
+                "value": 70
+              },
+              {
+                "name": "모험가 명성",
+                "value": 196
+              }
+            ],
+            "upgrade": 1
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 14
+              },
+              {
+                "name": "힘",
+                "value": 70
+              },
+              {
+                "name": "지능",
+                "value": 70
+              },
+              {
+                "name": "체력",
+                "value": 70
+              },
+              {
+                "name": "정신력",
+                "value": 70
+              },
+              {
+                "name": "모험가 명성",
+                "value": 196
+              }
+            ],
+            "upgrade": 2
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 15
+              },
+              {
+                "name": "힘",
+                "value": 70
+              },
+              {
+                "name": "지능",
+                "value": 70
+              },
+              {
+                "name": "체력",
+                "value": 70
+              },
+              {
+                "name": "정신력",
+                "value": 70
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 3
+          }
+        ]
+      },
+      "obtainInfo": {
+        "dungeon": null,
+        "shop": null
+      }
+    },
+    {
+      "itemId": "d25d84b3820a074eb639b33b28257012",
+      "itemName": "역병을 담은 눈, 옴마 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "itemExplain": "",
+      "itemExplainDetail": "",
+      "itemFlavorText": "인간은 요괴를 두려워하고, 요괴는 인간을 믿지 않아. 그렇게 서로를 영원히 모른 채 살아가겠지.",
+      "fame": 210,
+      "setItemId": null,
+      "setItemName": null,
+      "itemStatus": [
+        {
+          "name": "모험가 명성",
+          "value": 210
+        }
+      ],
+      "cardInfo": {
+        "slots": [
+          {
+            "slotId": "EARRING",
+            "slotName": "귀걸이"
+          }
+        ],
+        "enchant": [
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 12
+              },
+              {
+                "name": "힘",
+                "value": 70
+              },
+              {
+                "name": "지능",
+                "value": 70
+              },
+              {
+                "name": "체력",
+                "value": 70
+              },
+              {
+                "name": "정신력",
+                "value": 70
+              },
+              {
+                "name": "모험가 명성",
+                "value": 178
+              }
+            ],
+            "upgrade": 0
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 13
+              },
+              {
+                "name": "힘",
+                "value": 70
+              },
+              {
+                "name": "지능",
+                "value": 70
+              },
+              {
+                "name": "체력",
+                "value": 70
+              },
+              {
+                "name": "정신력",
+                "value": 70
+              },
+              {
+                "name": "모험가 명성",
+                "value": 196
+              }
+            ],
+            "upgrade": 1
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 14
+              },
+              {
+                "name": "힘",
+                "value": 70
+              },
+              {
+                "name": "지능",
+                "value": 70
+              },
+              {
+                "name": "체력",
+                "value": 70
+              },
+              {
+                "name": "정신력",
+                "value": 70
+              },
+              {
+                "name": "모험가 명성",
+                "value": 196
+              }
+            ],
+            "upgrade": 2
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 15
+              },
+              {
+                "name": "힘",
+                "value": 70
+              },
+              {
+                "name": "지능",
+                "value": 70
+              },
+              {
+                "name": "체력",
+                "value": 70
+              },
+              {
+                "name": "정신력",
+                "value": 70
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 3
+          }
+        ]
+      },
+      "obtainInfo": {
+        "dungeon": null,
+        "shop": null
+      }
     }
   ],
   "titles": [

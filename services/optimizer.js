@@ -37,8 +37,8 @@ class Optimizer {
           priceMap.set(itemId, {
             lowestPrice: cachedItem.lowestPrice,
             fetchedAt: cachedItem.fetchedAt || lastUpdated,
-            source: "file_cache",
-            itemId,
+            // source: "file_cache",
+            // itemId,
           });
         } else {
           priceMap.set(itemId, null);
