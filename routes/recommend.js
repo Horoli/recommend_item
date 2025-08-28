@@ -289,6 +289,24 @@ module.exports = async function (fastify) {
         response.plan = {
           spent: planRes.spent,
           remain: planRes.remain,
+          increaseStats: planRes.chosen.reduce((acc, cur) => {
+            const rec = enchantRecommendationsObj[cur.slotId];
+            if (!rec || !rec.currentStats) return acc;
+
+            const before = rec.currentStats; // 현재 장착중
+            const after = cur.status; // 추천된 것
+
+            Object.entries(after).forEach(([k, v]) => {
+              if (k === "모험가명성") return; // 🚫 합산에서 제외
+              const current = before[k] || 0;
+              const delta = v - current;
+              if (delta !== 0) {
+                acc[k] = (acc[k] || 0) + delta;
+              }
+            });
+
+            return acc;
+          }, {}),
           chosen: planRes.chosen.map((x) => ({
             slotId: x.slotId,
             slotName: x.slotName,

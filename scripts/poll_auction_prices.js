@@ -1,10 +1,10 @@
 // scripts/poll_auction_prices.js
-require("dotenv").config();
 const fs = require("fs/promises");
 const fssync = require("fs");
 const path = require("path");
 const axios = require("axios");
 const pLimit = require("p-limit");
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 
 const API_KEY = process.env.DP_API_KEY;
 if (!API_KEY) {
