@@ -27,7 +27,7 @@ fastify.get("/", async () => ({ ok: true, msg: "DF Recommend MVP" }));
 fastify.register(require("./routes/recommend"));
 
 fastify
-  .listen({ port: process.env.PORT || 3000, host: "0.0.0.0" })
+  .listen({ port: process.env.PORT || 9017, host: "0.0.0.0" })
   .then(() => fastify.log.info("Server listening"))
   .catch((err) => {
     fastify.log.error(err);
