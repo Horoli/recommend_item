@@ -59,6 +59,7 @@ module.exports = async function (fastify) {
           )}` +
           `/characters/${encodeURIComponent(id)}` +
           (zoom ? `?zoom=${encodeURIComponent(zoom)}` : "");
+        console.log(url);
       }
 
       const upstream = await axios.get(url, {
@@ -380,6 +381,7 @@ function summarizeBestPerSlot(cands) {
       upgrade: x.upgrade, // 풀업
       price: x.price, // { lowestPrice, ... }
       deltaScore: x.deltaScore,
+      status: x.status,
       efficiency:
         x.price && x.price.lowestPrice
           ? x.deltaScore / x.price.lowestPrice
