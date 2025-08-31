@@ -1223,6 +1223,30 @@
       "itemAvailableLevel": 1,
       "fame": 210,
       "category": "enchants"
+    },
+    {
+      "itemId": "d869a5f5a2f5d9ae636763285a29a78d",
+      "itemName": "구속의 공작 유리스 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "enchants"
+    },
+    {
+      "itemId": "fa8fdef47c38cc4a4c79877b9da8ea8c",
+      "itemName": "구속의 공작 유리스 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "enchants"
     }
   ]
 }

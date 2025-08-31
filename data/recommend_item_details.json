@@ -533,7 +533,9 @@
             "rows": [
               {
                 "name": "캐니언 힐",
-                "details": ["볼트 MX_3"]
+                "details": [
+                  "볼트 MX_3"
+                ]
               }
             ]
           },
@@ -542,7 +544,9 @@
             "rows": [
               {
                 "name": "노블레스 코드 : 더스크",
-                "details": ["볼트 MX_3"]
+                "details": [
+                  "볼트 MX_3"
+                ]
               }
             ]
           }
@@ -783,7 +787,9 @@
             "rows": [
               {
                 "name": "퀸 팔트",
-                "details": ["매드 리케"]
+                "details": [
+                  "매드 리케"
+                ]
               }
             ]
           },
@@ -792,7 +798,9 @@
             "rows": [
               {
                 "name": "노블레스 코드 : 더스크",
-                "details": ["매드 리케"]
+                "details": [
+                  "매드 리케"
+                ]
               }
             ]
           }
@@ -1033,7 +1041,9 @@
             "rows": [
               {
                 "name": "베리콜리스",
-                "details": ["빛의 괴수 피톤"]
+                "details": [
+                  "빛의 괴수 피톤"
+                ]
               }
             ]
           }
@@ -1274,7 +1284,9 @@
             "rows": [
               {
                 "name": "백색의 땅",
-                "details": ["순결한 파이디온"]
+                "details": [
+                  "순결한 파이디온"
+                ]
               }
             ]
           }
@@ -1680,7 +1692,9 @@
             "rows": [
               {
                 "name": "왕의 요람",
-                "details": ["되살아난 골드 크라운"]
+                "details": [
+                  "되살아난 골드 크라운"
+                ]
               }
             ]
           },
@@ -1689,7 +1703,9 @@
             "rows": [
               {
                 "name": "파괴된 죽은 자의 성",
-                "details": ["되살아난 골드 크라운"]
+                "details": [
+                  "되살아난 골드 크라운"
+                ]
               }
             ]
           }
@@ -3087,7 +3103,9 @@
               },
               {
                 "name": "피 흘리는 철광",
-                "details": ["각 철광 마지막 던전 클리어를 통해 획득"]
+                "details": [
+                  "각 철광 마지막 던전 클리어를 통해 획득"
+                ]
               }
             ]
           }
@@ -3921,7 +3939,9 @@
               },
               {
                 "name": "피 흘리는 철광",
-                "details": ["각 철광 마지막 던전 클리어를 통해 획득"]
+                "details": [
+                  "각 철광 마지막 던전 클리어를 통해 획득"
+                ]
               }
             ]
           }
@@ -3931,23 +3951,33 @@
             "rows": [
               {
                 "name": "NPC 회로 조합가 네리모",
-                "details": ["달이 잠긴 호수 레전더리 카드첩"]
+                "details": [
+                  "달이 잠긴 호수 레전더리 카드첩"
+                ]
               },
               {
                 "name": "NPC 신비한 힘의 마법서",
-                "details": ["달이 잠긴 호수 레전더리 카드첩"]
+                "details": [
+                  "달이 잠긴 호수 레전더리 카드첩"
+                ]
               },
               {
                 "name": "NPC 다정한 죽음 세니르",
-                "details": ["달이 잠긴 호수 레전더리 카드첩"]
+                "details": [
+                  "달이 잠긴 호수 레전더리 카드첩"
+                ]
               },
               {
                 "name": "NPC 땅지기 카메린",
-                "details": ["달이 잠긴 호수 레전더리 카드첩"]
+                "details": [
+                  "달이 잠긴 호수 레전더리 카드첩"
+                ]
               },
               {
                 "name": "NPC 달 사냥꾼 베즐로",
-                "details": ["달이 잠긴 호수 레전더리 카드첩"]
+                "details": [
+                  "달이 잠긴 호수 레전더리 카드첩"
+                ]
               }
             ]
           }
@@ -4325,11 +4355,15 @@
               },
               {
                 "name": "투영된 어둑섬",
-                "details": ["요기를 머금은 요무무"]
+                "details": [
+                  "요기를 머금은 요무무"
+                ]
               },
               {
                 "name": "안개고원",
-                "details": ["요기를 머금은 요무무"]
+                "details": [
+                  "요기를 머금은 요무무"
+                ]
               },
               {
                 "name": "이면 경계"
@@ -4888,7 +4922,9 @@
             "rows": [
               {
                 "name": "헤블론의 예언소",
-                "details": ["심연을 걷는 자"]
+                "details": [
+                  "심연을 걷는 자"
+                ]
               }
             ]
           },
@@ -4897,7 +4933,9 @@
             "rows": [
               {
                 "name": "파괴된 죽은 자의 성",
-                "details": ["심연을 걷는 자"]
+                "details": [
+                  "심연을 걷는 자"
+                ]
               }
             ]
           }
@@ -5097,7 +5135,9 @@
             "rows": [
               {
                 "name": "마이스터의 실험실",
-                "details": ["GB-4 디리겐트"]
+                "details": [
+                  "GB-4 디리겐트"
+                ]
               }
             ]
           }
@@ -5297,7 +5337,9 @@
             "rows": [
               {
                 "name": "마이스터의 실험실",
-                "details": ["GB-1 햅스"]
+                "details": [
+                  "GB-1 햅스"
+                ]
               }
             ]
           }
@@ -5497,7 +5539,9 @@
             "rows": [
               {
                 "name": "퀸 팔트",
-                "details": ["퀸 디스트로이어"]
+                "details": [
+                  "퀸 디스트로이어"
+                ]
               }
             ]
           },
@@ -5506,7 +5550,9 @@
             "rows": [
               {
                 "name": "노블레스 코드 : 더스크",
-                "details": ["퀸 디스트로이어"]
+                "details": [
+                  "퀸 디스트로이어"
+                ]
               }
             ]
           }
@@ -6971,7 +7017,9 @@
             "rows": [
               {
                 "name": "NPC 단진",
-                "details": ["단진의 특별상점에서 계정귀속 형태로 구매 가능"]
+                "details": [
+                  "단진의 특별상점에서 계정귀속 형태로 구매 가능"
+                ]
               }
             ]
           }
@@ -7594,11 +7642,15 @@
             "rows": [
               {
                 "name": "레이드 상점",
-                "details": ["타임 캡슐 - T.E.R.A."]
+                "details": [
+                  "타임 캡슐 - T.E.R.A."
+                ]
               },
               {
                 "name": "NPC 완전한 경계문진",
-                "details": ["타임 캡슐 - T.E.R.A."]
+                "details": [
+                  "타임 캡슐 - T.E.R.A."
+                ]
               }
             ]
           }
@@ -8600,7 +8652,9 @@
               },
               {
                 "name": "피 흘리는 철광",
-                "details": ["각 철광 마지막 던전 클리어를 통해 획득"]
+                "details": [
+                  "각 철광 마지막 던전 클리어를 통해 획득"
+                ]
               }
             ]
           }
@@ -8979,7 +9033,9 @@
             "rows": [
               {
                 "name": "흰 구름 계곡(상급)",
-                "details": ["큰 어른 루톤"]
+                "details": [
+                  "큰 어른 루톤"
+                ]
               }
             ]
           }
@@ -9802,6 +9858,180 @@
               }
             ],
             "upgrade": 3
+          }
+        ]
+      },
+      "obtainInfo": {
+        "dungeon": null,
+        "shop": null
+      }
+    },
+    {
+      "itemId": "d869a5f5a2f5d9ae636763285a29a78d",
+      "itemName": "구속의 공작 유리스 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "itemExplain": "",
+      "itemExplainDetail": "",
+      "itemFlavorText": "그분을 통해 죽음의 공포를 마주한 순간, 비로소 나는 생을 자각하였다.",
+      "fame": 221,
+      "setItemId": null,
+      "setItemName": null,
+      "itemStatus": [
+        {
+          "name": "모험가 명성",
+          "value": 221
+        }
+      ],
+      "cardInfo": {
+        "slots": [
+          {
+            "slotId": "WRIST",
+            "slotName": "팔찌"
+          }
+        ],
+        "enchant": [
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 35
+              },
+              {
+                "name": "최종 데미지",
+                "value": "1%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 0
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 35
+              },
+              {
+                "name": "최종 데미지",
+                "value": "1.5%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 1
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 35
+              },
+              {
+                "name": "최종 데미지",
+                "value": "2%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 221
+              }
+            ],
+            "upgrade": 2
+          }
+        ]
+      },
+      "obtainInfo": {
+        "dungeon": null,
+        "shop": null
+      }
+    },
+    {
+      "itemId": "fa8fdef47c38cc4a4c79877b9da8ea8c",
+      "itemName": "구속의 공작 유리스 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "itemExplain": "",
+      "itemExplainDetail": "",
+      "itemFlavorText": "그분을 통해 죽음의 공포를 마주한 순간, 비로소 나는 생을 자각하였다.",
+      "fame": 221,
+      "setItemId": null,
+      "setItemName": null,
+      "itemStatus": [
+        {
+          "name": "모험가 명성",
+          "value": 221
+        }
+      ],
+      "cardInfo": {
+        "slots": [
+          {
+            "slotId": "WRIST",
+            "slotName": "팔찌"
+          }
+        ],
+        "enchant": [
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 35
+              },
+              {
+                "name": "최종 데미지",
+                "value": "1%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 0
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 35
+              },
+              {
+                "name": "최종 데미지",
+                "value": "1.5%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 210
+              }
+            ],
+            "upgrade": 1
+          },
+          {
+            "status": [
+              {
+                "name": "모든 속성 강화",
+                "value": 35
+              },
+              {
+                "name": "최종 데미지",
+                "value": "2%"
+              },
+              {
+                "name": "모험가 명성",
+                "value": 221
+              }
+            ],
+            "upgrade": 2
           }
         ]
       },
