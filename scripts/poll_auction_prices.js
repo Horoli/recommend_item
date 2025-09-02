@@ -143,7 +143,10 @@ async function main() {
     await pruneOldSnapshots();
 
     console.log(
-      `✅ 최신 데이터 저장 완료: ${path.relative(process.cwd(), OUT_FILE)}`
+      `✅ 최신 데이터 저장 완료: ${isoKST()} ${path.relative(
+        process.cwd(),
+        OUT_FILE
+      )}`
     );
   } finally {
     await releaseLock(lock);
