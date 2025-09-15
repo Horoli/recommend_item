@@ -297,9 +297,41 @@ module.exports = async function (fastify) {
             const before = rec.currentStats; // 현재 장착중
             const after = cur.status; // 추천된 것
 
-            Object.entries(after).forEach(([k, v]) => {
+            // 속성강화 통합 함수
+            const consolidateElementEnhancement = (stats) => {
+              const consolidated = { ...stats };
+              let elementEnhValue = 0;
+
+              // 개별 속성강화 중 첫 번째 값 사용 (여러 개 있어도 1개만 적용)
+              for (const key of Enchants.ELEMENT_ENH_KEYS) {
+                if (consolidated[key]) {
+                  elementEnhValue = consolidated[key];
+                  delete consolidated[key];
+                  break; // 첫 번째 값만 사용하고 종료
+                }
+              }
+
+              // 모든속성강화가 있으면 그 값 사용 (개별 속성강화보다 우선)
+              if (consolidated["모든속성강화"]) {
+                elementEnhValue = consolidated["모든속성강화"];
+                delete consolidated["모든속성강화"];
+              }
+
+              // 속성강화 값이 있으면 추가
+              if (elementEnhValue > 0) {
+                consolidated["속성강화"] = elementEnhValue;
+              }
+
+              return consolidated;
+            };
+
+            // before와 after 모두 속성강화 통합
+            const consolidatedBefore = consolidateElementEnhancement(before);
+            const consolidatedAfter = consolidateElementEnhancement(after);
+
+            Object.entries(consolidatedAfter).forEach(([k, v]) => {
               if (k === "모험가명성") return; // 🚫 합산에서 제외
-              const current = before[k] || 0;
+              const current = consolidatedBefore[k] || 0;
               const delta = v - current;
               if (delta !== 0) {
                 acc[k] = (acc[k] || 0) + delta;
