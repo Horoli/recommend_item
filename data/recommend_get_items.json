@@ -985,6 +985,1226 @@
       "category": "enchants"
     },
     {
+      "itemId": "012982b7a8ac64c1254465f4b4a2df5f",
+      "itemName": "선별자 룬디어 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "enchants"
+    },
+    {
+      "itemId": "fcb3173136048504b6fabf574eac94ce",
+      "itemName": "선별자 룬디어 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "enchants"
+    },
+    {
+      "itemId": "aefd43bba0bdfee5203fde4a954b6e59",
+      "itemName": "더 파이퍼 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "enchants"
+    },
+    {
+      "itemId": "9c88e4d216a1bca717f605a76b3713f0",
+      "itemName": "더 파이퍼 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "enchants"
+    },
+    {
+      "itemId": "fabcd3a01597550d74739baca0cd60d3",
+      "itemName": "역병을 담은 눈, 옴마 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "enchants"
+    },
+    {
+      "itemId": "d25d84b3820a074eb639b33b28257012",
+      "itemName": "역병을 담은 눈, 옴마 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "enchants"
+    },
+    {
+      "itemId": "d869a5f5a2f5d9ae636763285a29a78d",
+      "itemName": "구속의 공작 유리스 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "enchants"
+    },
+    {
+      "itemId": "fa8fdef47c38cc4a4c79877b9da8ea8c",
+      "itemName": "구속의 공작 유리스 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "enchants"
+    },
+    {
+      "itemId": "eec286dfb9a2ce61656fea8300e0720b",
+      "itemName": "혼돈의 천사 루치펠 카드",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "dda2c35be00646c3e9bd1fdba6ddccc2",
+      "itemName": "혼돈의 천사 루치펠 보주",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "d5841162bb0f375c96dedac1bab053e2",
+      "itemName": "전격의 스테이츠 카드",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "a1609fd2058205f42092f7574dfc96bf",
+      "itemName": "전격의 스테이츠 보주",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "833fcb5ea79e469b8f0bbb7fb10881d4",
+      "itemName": "땅지기 슈므 카드",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "eb4e124953091b0f8c8ffab1ab93d994",
+      "itemName": "땅지기 슈므 보주",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "5295022c149f2b353b70f89f796dbc34",
+      "itemName": "대천사 미카엘 카드",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "810e1843c25805d7964aba8e9208ac79",
+      "itemName": "대천사 미카엘 보주",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "d9f3cf73774a5f8dc857c74dccfdfa98",
+      "itemName": "졸린 눈의 로턴드 카드",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "1e3fb7481ccfedaa38b1bde93521497f",
+      "itemName": "졸린 눈의 로턴드 보주",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "12a4a6ce6c34b550563f9fc9bf2ec3e6",
+      "itemName": "뒤쫓는 자 제논 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "659d88af17b3e2c915340b0d37250b4e",
+      "itemName": "뒤쫓는 자 제논 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "0239b1478c2a8214e70eac57581cddd2",
+      "itemName": "안개신의 무의식 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "5935a3df1a10783d210aee9bd1d4aee4",
+      "itemName": "안개신의 무의식 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "446810ea46c02b3a6b8146460e88a696",
+      "itemName": "미의 여신 베누스 파티 신청 프레임 & 파티 프레임 상자",
+      "itemRarity": "레어",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "75646f8fb522886186daf90888bcc605",
+      "itemTypeDetail": "부스터",
+      "itemAvailableLevel": 1,
+      "fame": 0,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "6cd16e3b592a40fda19657a39ff951c0",
+      "itemName": "미의 여신 베누스 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "9a72c0484e4bbe4eb9b4bf00671231af",
+      "itemName": "미의 여신 베누스 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "ca06233520362ea0aa8842919fde1c5d",
+      "itemName": "욕망과 미의 여신 베누스 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 240,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "2552a0f00dab450faab5cd51478d78c8",
+      "itemName": "욕망과 미의 여신 베누스 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 240,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "89638d4839dd2e640965835a05159160",
+      "itemName": "안개의 감시자 브림 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "44e9c3ea3e1c396e265215baa532aac6",
+      "itemName": "안개의 감시자 브림 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "a78228f65b4fb154e210d0d4b84a5508",
+      "itemName": "배낭지기 배니부 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 240,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "a571176a42f9e75c4f57f1fc67aa6fb4",
+      "itemName": "배낭지기 배니부 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 240,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "c09eac574c6fb330c8ef3795d54d2371",
+      "itemName": "코드네임 게이볼그 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "935fe56935ab43597c3101e0abb359d0",
+      "itemName": "코드네임 게이볼그 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "23bc91d20f0640bff7056bb9fc1a9f28",
+      "itemName": "일각수 크라켄 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "a878a15237d4f2d32bf2bea7d53b708b",
+      "itemName": "일각수 크라켄 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "411ab00487019f2b90c3cfc6f07674f0",
+      "itemName": "부패하는 사룡 스피라찌 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "4932d08879da2c9c3e3fa28b43ee120a",
+      "itemName": "부패하는 사룡 스피라찌 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "b91b4a562579211afc372fc93ad2097f",
+      "itemName": "땅지기 카메린 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "81b27326f546e74affe16afa08341db2",
+      "itemName": "땅지기 카메린 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "809f27840312af5097094cf9a09548f6",
+      "itemName": "최후의 테아나 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "5658c866c7d9159b08e50e6f96c55e27",
+      "itemName": "최후의 테아나 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "b7e9b64984dad813f6c9f88b8b37ba52",
+      "itemName": "최후의 테아나 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "5df8239864403dffa9466bbc82ff39b7",
+      "itemName": "안개의 사제 클라디스 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "102ff554f314146e4b335d905dcb0c5b",
+      "itemName": "안개의 사제 클라디스 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "ca53590cfee44ca52484e380c041b99b",
+      "itemName": "평온한 로절린드 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "21c45a8810f05f13da5d00a393d6e20c",
+      "itemName": "평온한 로절린드 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "8385f8e92ee9413839b84703f68271db",
+      "itemName": "광포의 마흐나발 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "1cf50c40286d59d72edea0ff34aa36be",
+      "itemName": "광포의 마흐나발 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "7bc84924f1c0ac2db29c49b251155821",
+      "itemName": "금룡 느마우그 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "dfb60de23827226ee2c7a83225f66b27",
+      "itemName": "금룡 느마우그 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 196,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "a269bb36d222f9af9ee698132ca7fe4f",
+      "itemName": "무경계의 테르미누스 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "b64ec1a4807e3b4ed6a95959818ccd53",
+      "itemName": "무경계의 테르미누스 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "b253dede93436baff46e560febb7ecff",
+      "itemName": "과학자 모리 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "eaef4b7cdc5184986e685998dcc612af",
+      "itemName": "과학자 모리 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "078630e1f610eee7c724e477d13425b2",
+      "itemName": "인공신 2호 아니마 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "6898840c20be827890ac4c9db3dd12c9",
+      "itemName": "인공신 2호 아니마 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "dd999797ce33af6eb891ffac52bc19a1",
+      "itemName": "빛나는 다이앤 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "bcf7895b985f283b2fdbc4f8af5ed7e1",
+      "itemName": "빛나는 다이앤 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "5f5d0a2e9dd8050b6e3c4655a09cf296",
+      "itemName": "기억의 도서관지기 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "2e4d6eb8d65040b928264d972a5b03e6",
+      "itemName": "기억의 도서관지기 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "72062e468c2dd231c258809faab14870",
+      "itemName": "기억의 도서관지기 파티 신청 프레임 상자",
+      "itemRarity": "레어",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "75646f8fb522886186daf90888bcc605",
+      "itemTypeDetail": "부스터",
+      "itemAvailableLevel": 1,
+      "fame": 0,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "2c25ad8cfb7c95dd2b3ce85d735bcd12",
+      "itemName": "기억의 도서관지기 프릴 케이프 원피스",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "6c5ef32da851f993b8e90fdadb307248",
+      "itemTypeDetail": "상의",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "3909d0b188e9c95311399f776e331da5",
+          "jobName": "마법사(여)"
+        },
+        {
+          "jobId": "b522a95d819a5559b775deb9a490e49a",
+          "jobName": "크리에이터"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "f6afb8ba919b41b978812d7e73f1ad59",
+      "itemName": "기억의 도서관지기 숏팬츠와 니삭스",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "cc77ea28641f077ba22d530be29d3c7d",
+      "itemTypeDetail": "하의",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "3909d0b188e9c95311399f776e331da5",
+          "jobName": "마법사(여)"
+        },
+        {
+          "jobId": "b522a95d819a5559b775deb9a490e49a",
+          "jobName": "크리에이터"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "56728009d7b3caea7b49caf2c45e8ff9",
+      "itemName": "기억의 도서관지기 프릴 케이프 망토",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "20fae8af76bf8c1bdc22d2587a21a145",
+      "itemTypeDetail": "목가슴",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "3909d0b188e9c95311399f776e331da5",
+          "jobName": "마법사(여)"
+        },
+        {
+          "jobId": "b522a95d819a5559b775deb9a490e49a",
+          "jobName": "크리에이터"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "731bb342a33361a843e4c492f39a8b40",
+      "itemName": "기억의 도서관지기 별 회로 문양",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "5053aacc8fe4e6dd3d9da9196da61261",
+      "itemTypeDetail": "허리",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "3909d0b188e9c95311399f776e331da5",
+          "jobName": "마법사(여)"
+        },
+        {
+          "jobId": "b522a95d819a5559b775deb9a490e49a",
+          "jobName": "크리에이터"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "e0fc4ad317e2071879e17c858e080ff7",
+      "itemName": "기억의 도서관지기 별 구두",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "14ef8c0d2cc89d419f5bbd01b223216d",
+      "itemTypeDetail": "신발",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "3909d0b188e9c95311399f776e331da5",
+          "jobName": "마법사(여)"
+        },
+        {
+          "jobId": "b522a95d819a5559b775deb9a490e49a",
+          "jobName": "크리에이터"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "76451c59b4a79b0c2a8387945959e7a9",
+      "itemName": "기억의 도서관지기 별이 반짝이는 천",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "39815fc766534091463f2a6b025d370e",
+      "itemTypeDetail": "모자",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "3909d0b188e9c95311399f776e331da5",
+          "jobName": "마법사(여)"
+        },
+        {
+          "jobId": "b522a95d819a5559b775deb9a490e49a",
+          "jobName": "크리에이터"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "e35d7d2fa0c9b970d63a1cad36a071a2",
+      "itemName": "기억의 도서관지기 시크릿 투톤 롱 헤어",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "53a7580c73d4a699010616a7716b9781",
+      "itemTypeDetail": "머리",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "3909d0b188e9c95311399f776e331da5",
+          "jobName": "마법사(여)"
+        },
+        {
+          "jobId": "b522a95d819a5559b775deb9a490e49a",
+          "jobName": "크리에이터"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "dea191c838aaed4f63ea1d22e8479618",
+      "itemName": "기억의 도서관지기 별의 증표",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "d4722756a5a43ce7a87f5d7cb703df74",
+      "itemTypeDetail": "얼굴",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "3909d0b188e9c95311399f776e331da5",
+          "jobName": "마법사(여)"
+        },
+        {
+          "jobId": "b522a95d819a5559b775deb9a490e49a",
+          "jobName": "크리에이터"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "317572d6f6b9ce536ee85a1630dff637",
+      "itemName": "기억의 도서관지기 웨이스트 코트",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "6c5ef32da851f993b8e90fdadb307248",
+      "itemTypeDetail": "상의",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "a5ccbaf5538981c6ef99b236c0a60b73",
+          "jobName": "마법사(남)"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "6f24fb70924a771605eb13d43105b68f",
+      "itemName": "기억의 도서관지기 캐주얼 팬츠",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "cc77ea28641f077ba22d530be29d3c7d",
+      "itemTypeDetail": "하의",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "a5ccbaf5538981c6ef99b236c0a60b73",
+          "jobName": "마법사(남)"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "120f9ebf644a59c7d93c45e0f8d6a927",
+      "itemName": "기억의 도서관지기 별자리 망토",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "20fae8af76bf8c1bdc22d2587a21a145",
+      "itemTypeDetail": "목가슴",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "a5ccbaf5538981c6ef99b236c0a60b73",
+          "jobName": "마법사(남)"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "eb3adcdfa223be07b03507333bb83971",
+      "itemName": "기억의 도서관지기 기억의 책",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "5053aacc8fe4e6dd3d9da9196da61261",
+      "itemTypeDetail": "허리",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "a5ccbaf5538981c6ef99b236c0a60b73",
+          "jobName": "마법사(남)"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "979d2ed5d4c51c1a7a69500b2e898522",
+      "itemName": "기억의 도서관지기 캐주얼 로퍼",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "14ef8c0d2cc89d419f5bbd01b223216d",
+      "itemTypeDetail": "신발",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "a5ccbaf5538981c6ef99b236c0a60b73",
+          "jobName": "마법사(남)"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "38e327389878dd463b63d88c0e04f8c8",
+      "itemName": "기억의 도서관지기 별자리 후드",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "39815fc766534091463f2a6b025d370e",
+      "itemTypeDetail": "모자",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "a5ccbaf5538981c6ef99b236c0a60b73",
+          "jobName": "마법사(남)"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "45be564b9278dff548afdd20670aad07",
+      "itemName": "기억의 도서관지기 투톤 헤어",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "53a7580c73d4a699010616a7716b9781",
+      "itemTypeDetail": "머리",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "a5ccbaf5538981c6ef99b236c0a60b73",
+          "jobName": "마법사(남)"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "7c2c656bf81c7243b9d3bc2ca9496269",
+      "itemName": "기억의 도서관지기 메이크업과 귀걸이",
+      "itemRarity": "레어",
+      "itemTypeId": "5f41b95e310c27783378edde2d24c3dd",
+      "itemType": "아바타",
+      "itemTypeDetailId": "d4722756a5a43ce7a87f5d7cb703df74",
+      "itemTypeDetail": "얼굴",
+      "itemAvailableLevel": 1,
+      "fame": 88,
+      "jobs": [
+        {
+          "jobId": "a5ccbaf5538981c6ef99b236c0a60b73",
+          "jobName": "마법사(남)"
+        }
+      ],
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "f27d1f287df98245eab3a48dc4a2aae5",
+      "itemName": "오만의 악 아니마 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 240,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "72a4716cdf8d56242c35605327221fe5",
+      "itemName": "오만의 악 아니마 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 240,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "ff0223f31a9b62e509152eabc8ecb031",
+      "itemName": "연합 사령관 이리네 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "c9b9af8157e8836eb685c6d7a2bc19d4",
+      "itemName": "연합 사령관 이리네 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "fb9fbe0aa3e53f9b1e000acc24857954",
+      "itemName": "부조화의 로페즈 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "3b23e4fe1ef71d241231e643c3f81ce0",
+      "itemName": "부조화의 로페즈 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "70152fcd021fcc1d1a304a1fadd0bf56",
+      "itemName": "파고드는 스펀저 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "a161137c22c6333193239a08c7376ef3",
+      "itemName": "파고드는 스펀저 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 210,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "3107c436d0ae299b8da394ed937e411f",
+      "itemName": "다정한 죽음 세니르 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 240,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "0be04b4437a93cae41c210b619aadcc8",
+      "itemName": "다정한 죽음 세니르 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 240,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "15c2c2f1b79649740f44af3ff8a53c6b",
+      "itemName": "베누스의 보석함 카드",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "a9b65c5060a40a11f8a653b553c531aa",
+      "itemName": "베누스의 보석함 보주",
+      "itemRarity": "유니크",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "446ceff7e0823f7ad7fc7cb866165764",
+      "itemName": "흰 구름 감시자 라르고 카드",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
+      "itemTypeDetail": "전문직업 재료",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
+      "itemId": "a3cccf006f4bd8e6492d0a072cf03ac8",
+      "itemName": "흰 구름 감시자 라르고 보주",
+      "itemRarity": "레전더리",
+      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
+      "itemType": "스태커블",
+      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
+      "itemTypeDetail": "보주",
+      "itemAvailableLevel": 1,
+      "fame": 221,
+      "category": "bufferEnchants"
+    },
+    {
       "itemId": "cdfc1227f1ab61a959cb8dc568fb8198",
       "itemName": "프로스트의 전설 플래티넘 칭호 선택 상자",
       "itemRarity": "레어",
@@ -1151,102 +2371,6 @@
       "itemAvailableLevel": 1,
       "fame": 1123,
       "category": "titles"
-    },
-    {
-      "itemId": "012982b7a8ac64c1254465f4b4a2df5f",
-      "itemName": "선별자 룬디어 카드",
-      "itemRarity": "레전더리",
-      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
-      "itemType": "스태커블",
-      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
-      "itemTypeDetail": "전문직업 재료",
-      "itemAvailableLevel": 1,
-      "fame": 221,
-      "category": "enchants"
-    },
-    {
-      "itemId": "fcb3173136048504b6fabf574eac94ce",
-      "itemName": "선별자 룬디어 보주",
-      "itemRarity": "레전더리",
-      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
-      "itemType": "스태커블",
-      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
-      "itemTypeDetail": "보주",
-      "itemAvailableLevel": 1,
-      "fame": 221,
-      "category": "enchants"
-    },
-    {
-      "itemId": "aefd43bba0bdfee5203fde4a954b6e59",
-      "itemName": "더 파이퍼 카드",
-      "itemRarity": "레전더리",
-      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
-      "itemType": "스태커블",
-      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
-      "itemTypeDetail": "전문직업 재료",
-      "itemAvailableLevel": 1,
-      "fame": 210,
-      "category": "enchants"
-    },
-    {
-      "itemId": "9c88e4d216a1bca717f605a76b3713f0",
-      "itemName": "더 파이퍼 보주",
-      "itemRarity": "레전더리",
-      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
-      "itemType": "스태커블",
-      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
-      "itemTypeDetail": "보주",
-      "itemAvailableLevel": 1,
-      "fame": 210,
-      "category": "enchants"
-    },
-    {
-      "itemId": "fabcd3a01597550d74739baca0cd60d3",
-      "itemName": "역병을 담은 눈, 옴마 카드",
-      "itemRarity": "레전더리",
-      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
-      "itemType": "스태커블",
-      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
-      "itemTypeDetail": "전문직업 재료",
-      "itemAvailableLevel": 1,
-      "fame": 210,
-      "category": "enchants"
-    },
-    {
-      "itemId": "d25d84b3820a074eb639b33b28257012",
-      "itemName": "역병을 담은 눈, 옴마 보주",
-      "itemRarity": "레전더리",
-      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
-      "itemType": "스태커블",
-      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
-      "itemTypeDetail": "보주",
-      "itemAvailableLevel": 1,
-      "fame": 210,
-      "category": "enchants"
-    },
-    {
-      "itemId": "d869a5f5a2f5d9ae636763285a29a78d",
-      "itemName": "구속의 공작 유리스 카드",
-      "itemRarity": "레전더리",
-      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
-      "itemType": "스태커블",
-      "itemTypeDetailId": "0ec40bc4c624e1a4c498a6a99fbf0d19",
-      "itemTypeDetail": "전문직업 재료",
-      "itemAvailableLevel": 1,
-      "fame": 221,
-      "category": "enchants"
-    },
-    {
-      "itemId": "fa8fdef47c38cc4a4c79877b9da8ea8c",
-      "itemName": "구속의 공작 유리스 보주",
-      "itemRarity": "레전더리",
-      "itemTypeId": "8bcda5578720a4dc56b1736ccbe06c0f",
-      "itemType": "스태커블",
-      "itemTypeDetailId": "661197ec3628a8476f5121d6209f41aa",
-      "itemTypeDetail": "보주",
-      "itemAvailableLevel": 1,
-      "fame": 221,
-      "category": "enchants"
     }
   ]
 }

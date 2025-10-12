@@ -42,7 +42,13 @@ function dedupByItemId(rows) {
 
 // details 객체 표준화: { enchants:[], titles:[], creatures:[], auras:[] }
 function emptyDetailsObj() {
-  return { enchants: [], titles: [], creatures: [], auras: [] };
+  return {
+    enchants: [],
+    bufferEnchants: [],
+    titles: [],
+    creatures: [],
+    auras: [],
+  };
 }
 function readDetailsAsObject() {
   const raw = readJSON(recommendItemDetailsFile, null);
@@ -50,11 +56,19 @@ function readDetailsAsObject() {
 
   // 과거: 배열로 저장되어 있던 경우 → enchants로 마이그레이션
   if (Array.isArray(raw)) {
-    return { enchants: raw, titles: [], creatures: [], auras: [] };
+    return {
+      enchants: raw,
+      bufferEnchants: [],
+      titles: [],
+      creatures: [],
+      auras: [],
+    };
   }
 
   const out = emptyDetailsObj();
   if (raw && Array.isArray(raw.enchants)) out.enchants = raw.enchants;
+  if (raw && Array.isArray(raw.bufferEnchants))
+    out.bufferEnchants = raw.bufferEnchants;
   if (raw && Array.isArray(raw.titles)) out.titles = raw.titles;
   if (raw && Array.isArray(raw.creatures)) out.creatures = raw.creatures;
   if (raw && Array.isArray(raw.auras)) out.auras = raw.auras;
@@ -82,6 +96,7 @@ function writeGetItems(rows) {
 function readRecommend() {
   const raw = readJSON(recommendFile, {
     enchants: [],
+    bufferEnchants: [],
     titles: [],
     creatures: [],
     auras: [],
@@ -93,6 +108,7 @@ function readRecommend() {
 
   return {
     enchants: [...new Set([...(ench || []), ...legacyItems])],
+    bufferEnchants: Array.isArray(raw.bufferEnchants) ? raw.bufferEnchants : [],
     titles: Array.isArray(raw.titles) ? raw.titles : [],
     creatures: Array.isArray(raw.creatures) ? raw.creatures : [],
     auras: Array.isArray(raw.auras) ? raw.auras : [],
@@ -112,6 +128,7 @@ function computeMissingNamesByCategory() {
     const missing = [];
     for (const name of list) {
       const n = norm(name);
+
       const isPresent = Array.from(presentNames).some(
         (rowN) => rowN.includes(n) || n.includes(rowN)
       );
@@ -122,12 +139,14 @@ function computeMissingNamesByCategory() {
 
   return {
     enchants: namesMissing(rec.enchants),
+    bufferEnchants: namesMissing(rec.bufferEnchants),
     titles: namesMissing(rec.titles),
     creatures: namesMissing(rec.creatures),
     auras: namesMissing(rec.auras),
     stats: {
       recCounts: {
         enchants: rec.enchants.length,
+        bufferEnchants: rec.bufferEnchants.length,
         titles: rec.titles.length,
         creatures: rec.creatures.length,
         auras: rec.auras.length,
@@ -144,12 +163,18 @@ async function fetchRecommendItemsOnlyMissing(missingByCat) {
 
   const entries = [
     ["enchants", missingByCat.enchants],
+    ["bufferEnchants", missingByCat.bufferEnchants],
     ["titles", missingByCat.titles],
     ["creatures", missingByCat.creatures],
     ["auras", missingByCat.auras],
   ];
 
   let appended = 0;
+
+  const EXCLUDED_ENCHANT_TYPES = new Set([
+    "0ec40bc4c624e1a4c498a6a99fbf0d19", // 전문직업 재료
+    "661197ec3628a8476f5121d6209f41aa", // 보주
+  ]);
 
   for (const [category, names] of entries) {
     if (!names || names.length === 0) continue;
@@ -167,8 +192,20 @@ async function fetchRecommendItemsOnlyMissing(missingByCat) {
         );
       } else {
         const data = await res.json();
+
         if (data.rows && Array.isArray(data.rows) && data.rows.length > 0) {
           for (const row of data.rows) {
+            // enchants 카테고리이고 제외 대상 itemTypeDetail이면 skip
+            if (
+              (category === "enchants" || category === "bufferEnchants") &&
+              EXCLUDED_ENCHANT_TYPES.has(row.itemTypeDetail)
+            ) {
+              console.log(
+                `  ⏭️  skip: ${row.itemName} (${row.itemTypeDetailId})`
+              );
+              continue;
+            }
+
             appended++;
             existingRows.push({ ...row, category });
           }
@@ -195,9 +232,11 @@ async function fetchItemDetailsOnlyMissing() {
   const idToCategory = new Map(rows.map((r) => [r.itemId, r.category])); // category 없을 수도 있음
 
   const detailsObj = readDetailsAsObject();
+
   const haveIds = new Set(
     [
       ...detailsObj.enchants.map((d) => d.itemId),
+      ...detailsObj.bufferEnchants.map((d) => d.itemId),
       ...detailsObj.titles.map((d) => d.itemId),
       ...detailsObj.creatures.map((d) => d.itemId),
       ...detailsObj.auras.map((d) => d.itemId),
@@ -214,6 +253,10 @@ async function fetchItemDetailsOnlyMissing() {
   console.log(`📦 상세 조회 대상: ${toFetchIds.length}개 (15개씩 배치 호출)`);
 
   const newDetails = [];
+  // const EXCLUDED_ENCHANT_TYPES = new Set([
+  //   "0ec40bc4c624e1a4c498a6a99fbf0d19", // 전문직업 재료
+  //   "661197ec3628a8476f5121d6209f41aa", // 보주
+  // ]);
 
   for (let i = 0; i < toFetchIds.length; i += 15) {
     const batch = toFetchIds.slice(i, i + 15);
@@ -229,6 +272,26 @@ async function fetchItemDetailsOnlyMissing() {
     } else {
       const data = await res.json();
       if (data && Array.isArray(data.rows)) {
+        // category가 enchants일때, data.rows[i].itemTypeDetail가
+        // 0ec40bc4c624e1a4c498a6a99fbf0d19(전문직업 재료)
+        // 661197ec3628a8476f5121d6209f41aa(보주)
+        // 가 아니면 push하지 않음
+        // for (const item of data.rows) {
+        //   const cat =
+        //     idToCategory.get(item.itemId) ||
+        //     inferCategoryFromName(item.itemName);
+
+        //   // enchants 카테고리이고 제외 대상 itemTypeDetail이면 skip
+        //   if (
+        //     cat === "enchants" &&
+        //     EXCLUDED_ENCHANT_TYPES.has(item.itemTypeDetail)
+        //   ) {
+        //     console.log(
+        //       `  ⏭️  skip: ${item.itemName} (${item.itemTypeDetail})`
+        //     );
+        //     continue;
+        //   }
+        // }
         newDetails.push(...data.rows);
       } else if (data && data.rows && typeof data.rows === "object") {
         newDetails.push(...Object.values(data.rows));
@@ -240,6 +303,7 @@ async function fetchItemDetailsOnlyMissing() {
   }
 
   const ench = detailsObj.enchants.slice();
+  const buffer = detailsObj.bufferEnchants.slice();
   const titl = detailsObj.titles.slice();
   const crea = detailsObj.creatures.slice();
   const aura = detailsObj.auras.slice();
@@ -257,6 +321,9 @@ async function fetchItemDetailsOnlyMissing() {
       case "auras":
         aura.push(detail);
         break;
+      case "bufferEnchants":
+        buffer.push(detail);
+        break;
       case "enchants":
       default:
         ench.push(detail);
@@ -266,6 +333,7 @@ async function fetchItemDetailsOnlyMissing() {
 
   const merged = {
     enchants: dedupByItemId(ench),
+    bufferEnchants: dedupByItemId(buffer),
     titles: dedupByItemId(titl),
     creatures: dedupByItemId(crea),
     auras: dedupByItemId(aura),
@@ -274,12 +342,14 @@ async function fetchItemDetailsOnlyMissing() {
 
   const totalBefore =
     detailsObj.enchants.length +
+    detailsObj.bufferEnchants.length +
     detailsObj.titles.length +
     detailsObj.creatures.length +
     detailsObj.auras.length;
 
   const totalAfter =
     merged.enchants.length +
+    merged.bufferEnchants.length +
     merged.titles.length +
     merged.creatures.length +
     merged.auras.length;
@@ -292,6 +362,7 @@ async function fetchItemDetailsOnlyMissing() {
 // category 추론(백업): itemName 키워드로 대충 분류, 실패 시 'enchants'
 function inferCategoryFromName(name) {
   const n = (name || "").toLowerCase();
+  // if(n.includes("")) return "bufferEnchants"
   if (n.includes("칭호")) return "titles";
   if (n.includes("크리쳐") || n.includes("크리처")) return "creatures";
   if (n.includes("오라")) return "auras";
@@ -305,10 +376,11 @@ function inferCategoryFromName(name) {
 
   const missingByCat = computeMissingNamesByCategory();
   console.log(
-    `📊 recommend.json counts → enchants:${missingByCat.stats.recCounts.enchants}, titles:${missingByCat.stats.recCounts.titles}, creatures:${missingByCat.stats.recCounts.creatures}, auras:${missingByCat.stats.recCounts.auras} | present rows: ${missingByCat.stats.presentRows}`
+    `📊 recommend.json counts → enchants:${missingByCat.stats.recCounts.enchants}, bufferEnchants: ${missingByCat.stats.recCounts.bufferEnchants},
+     titles:${missingByCat.stats.recCounts.titles}, creatures:${missingByCat.stats.recCounts.creatures}, auras:${missingByCat.stats.recCounts.auras} | present rows: ${missingByCat.stats.presentRows}`
   );
   console.log(
-    `🧩 부족한 이름 → enchants:${missingByCat.enchants.length}, titles:${missingByCat.titles.length}, creatures:${missingByCat.creatures.length}, auras:${missingByCat.auras.length}`
+    `🧩 부족한 이름 → enchants:${missingByCat.enchants.length}, bufferEnchants:${missingByCat.bufferEnchants.length}, titles:${missingByCat.titles.length}, creatures:${missingByCat.creatures.length}, auras:${missingByCat.auras.length}`
   );
 
   await fetchRecommendItemsOnlyMissing(missingByCat);
