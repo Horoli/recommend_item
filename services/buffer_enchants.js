@@ -71,6 +71,15 @@ class BufferEnchants extends DefaultEnchants {
     return k === "힘" || k === "지능" || k === "정신력" || k === "체력";
   }
 
+  // 딜러와 동일한 스탯 처리 메서드 추가
+  static weightForStatKey(key) {
+    const k = this.normalizeName(key);
+    if (this.isAbilityStatKey(k)) return this.WEIGHTS._능력치;
+    if (k === "캐스트속도") return this.WEIGHTS.캐스트속도 ?? 0;
+    if (k === "모험가명성" || k === "모험가 명성") return 0;
+    return this.WEIGHTS[key] ?? 0;
+  }
+
   static toSkillMap(reinforceSkillList = [], targetJobId = null) {
     const map = {};
     for (const jobSkills of reinforceSkillList || []) {
@@ -102,6 +111,7 @@ class BufferEnchants extends DefaultEnchants {
   }
 
   // -------- diff calculation --------
+  // diffStatusArrays 수정 - 딜러와 유사한 구조로
   static diffStatusArrays(currentStatus = [], recStatus = []) {
     const curStats = this.toStatMap(currentStatus);
     const recStats = this.toStatMap(recStatus);
@@ -109,22 +119,18 @@ class BufferEnchants extends DefaultEnchants {
     const byStat = {};
     const keys = new Set([...Object.keys(curStats), ...Object.keys(recStats)]);
 
-    // 능력치(힘/지능/체력/정신력) 중 최대값 1개만 선택
+    // 능력치 중 최대값 1개만 선택
     let bestAbility = { key: null, delta: 0 };
 
     for (const k of keys) {
       const nk = this.normalizeName(k);
       if (nk === "모험가명성") continue;
-      if (nk === "캐스트속도") continue;
-      if (nk === "물리크리티컬히트") continue;
-      if (nk === "마법크리티컬히트") continue;
 
       const c = Number(curStats[k] || 0);
       const r = Number(recStats[k] || 0);
-      const delta = r - c;
-
       if (!c && !r) continue;
 
+      const delta = r - c;
       byStat[k] = { current: c, recommended: r, delta };
 
       // 능력치인 경우 최대값 추적
@@ -136,7 +142,7 @@ class BufferEnchants extends DefaultEnchants {
     }
 
     // 점수 계산
-    const abilityW = this.WEIGHTS._능력치 ?? 0.6;
+    const abilityW = this.WEIGHTS._능력치 ?? 1;
     const abilityScore = abilityW * (bestAbility.delta || 0);
 
     // 나머지 스탯 점수 계산
@@ -145,15 +151,22 @@ class BufferEnchants extends DefaultEnchants {
       const nk = this.normalizeName(k);
       if (this.isAbilityStatKey(nk)) continue; // 능력치는 이미 처리됨
 
-      const weight = this.STAT_WEIGHTS[k] ?? 0;
-      if (weight) othersScore += weight * (v.delta || 0);
+      const w = this.weightForStatKey(k);
+      if (w) othersScore += w * (v.delta || 0);
     }
 
-    const totalScore = abilityScore + othersScore;
+    const statScore = abilityScore + othersScore;
 
-    return { byStat, statScore: totalScore };
+    return {
+      byStat,
+      meta: {
+        statScore,
+        deltaScore: statScore, // 딜러와 호환성을 위해 추가
+      },
+    };
   }
 
+  // diffSkillArrays는 그대로 유지하되, 반환 형식 통일
   static diffSkillArrays(
     currentSkills = [],
     recSkills = [],
@@ -181,16 +194,12 @@ class BufferEnchants extends DefaultEnchants {
       if (!curLevel && !recLevel) continue;
 
       const skillInfo = rec || cur;
-
-      // 1. skillId로 먼저 확인
       let skillType = this.SKILL_TYPES[skillInfo.skillId];
 
-      // 2. skillId로 찾지 못하면 스킬 이름으로 판별
       if (!skillType) {
         skillType = this.getSkillTypeByName(skillInfo.skillName);
       }
 
-      // 3. 가중치 결정
       const weight =
         this.SKILL_WEIGHTS[skillType] || this.SKILL_WEIGHTS.default;
 
@@ -202,14 +211,19 @@ class BufferEnchants extends DefaultEnchants {
         currentLevel: curLevel,
         recommendedLevel: recLevel,
         delta,
-        skillType, // 스킬 타입 (awakening_passive, job_passive, default)
-        weight, // 적용된 가중치
+        skillType,
+        weight,
       };
 
       totalScore += weight * delta;
     }
 
-    return { bySkill, skillScore: totalScore };
+    return {
+      bySkill,
+      meta: {
+        skillScore: totalScore,
+      },
+    };
   }
 
   // -------- catalog → candidates --------
@@ -265,26 +279,33 @@ class BufferEnchants extends DefaultEnchants {
   }
 
   // -------- evaluation --------
+  // evaluateBufferEnchantForEquipment 수정
   static evaluateBufferEnchantForEquipment(equip, limit = 3, ctx = {}) {
     const slotId = equip?.slotId;
     const targetJobId = ctx.jobId || null;
-
+    const currentStats = this.toStatMap(equip?.enchant?.status || []);
     const candidates = this.getMaxUpgradeCandidatesForSlot(slotId);
 
     const enriched = [];
     for (const c of candidates) {
+      const recStats = this.toStatMap(c.status);
+
+      // 딜러와 동일한 구조로 스탯 diff 계산
       const statDiff = this.diffStatusArrays(
         equip?.enchant?.status || [],
         c.status
       );
 
+      // 스킬 diff 계산
       const skillDiff = this.diffSkillArrays(
         equip?.enchant?.reinforceSkill || [],
         c.reinforceSkill,
         targetJobId
       );
 
-      const totalScore = statDiff.statScore + skillDiff.skillScore;
+      // 총점 계산: 스탯 점수 + 스킬 점수
+      const totalScore =
+        (statDiff.meta?.deltaScore || 0) + (skillDiff.meta?.skillScore || 0);
 
       enriched.push({
         itemId: c.itemId,
@@ -294,9 +315,17 @@ class BufferEnchants extends DefaultEnchants {
         upgrade: c.upgrade,
         rarity: c.rarity,
         score: totalScore,
-        status: c.status,
-        statDiff,
-        skillDiff,
+        recStats, // 딜러와 동일하게 recStats 추가
+        diff: {
+          // 딜러와 동일한 구조로 통합
+          byStat: statDiff.byStat,
+          bySkill: skillDiff.bySkill,
+          meta: {
+            statScore: statDiff.meta?.deltaScore || 0,
+            skillScore: skillDiff.meta?.skillScore || 0,
+            deltaScore: totalScore,
+          },
+        },
       });
     }
 
@@ -310,7 +339,7 @@ class BufferEnchants extends DefaultEnchants {
       slotName: equip?.slotName,
       equippedItemId: equip?.itemId,
       equippedItemName: equip?.itemName,
-      currentStats: this.toStatMap(equip?.enchant?.status || []),
+      currentStats, // 딜러와 동일
       currentSkills: this.toSkillMap(
         equip?.enchant?.reinforceSkill || [],
         targetJobId
@@ -318,7 +347,7 @@ class BufferEnchants extends DefaultEnchants {
       recommended: better,
     };
   }
-
+  // }
   static evaluateAllEquipment(equipmentList = [], limit = 3, ctx = {}) {
     return equipmentList.map((eq) =>
       this.evaluateBufferEnchantForEquipment(eq, limit, ctx)
