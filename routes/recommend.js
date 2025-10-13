@@ -1,6 +1,7 @@
 // routes/recommend.js
 const DfApi = require("../services/df_api");
 const Enchants = require("../services/enchants");
+const BufferEnchants = require("../services/buffer_enchants");
 const Optimizer = require("../services/optimizer");
 const axios = require("axios");
 const fs = require("fs");
@@ -124,20 +125,23 @@ module.exports = async function (fastify) {
 
       // 1) 캐릭터 식별
       let cid = characterId;
+      let getJobGrowName;
+      let jobId;
       if (!cid) {
         const found = await DfApi.findCharacter(server, name);
 
         if (!found?.characterId)
           return reply.status(404).send({ error: "character not found" });
+        getJobGrowName = found.raw.jobGrowName;
         //  지금 버전에선 버퍼는 제외
-        const getJobGrowName = found.raw.jobGrowName;
+        // const characterIsBuffer = bufferList.includes(getJobGrowName);
+        // if (characterIsBuffer)
+        //   return reply.status(404).send({ error: "input character is buffer" });
 
-        const characterIsBuffer = bufferList.includes(getJobGrowName);
-        if (characterIsBuffer)
-          return reply.status(404).send({ error: "input character is buffer" });
-
+        jobId = found.raw.jobId;
         cid = found.characterId;
       }
+      const characterIsBuffer = bufferList.includes(getJobGrowName);
 
       // 1) 캐릭터 상태 조회
       const charStatus = await DfApi.getCharacterStatus(server, cid);
@@ -147,6 +151,167 @@ module.exports = async function (fastify) {
       const equipment = Array.isArray(equipObj?.equipment)
         ? equipObj.equipment
         : [];
+
+      if (characterIsBuffer) {
+        // TODO : buffer 추천기를 따로 돌림
+        const evals = BufferEnchants.evaluateAllEquipment(equipment, safeTopN, {
+          jobId,
+        });
+
+        const cardOnly = evals.map((slot) => ({
+          ...slot,
+          recommended: (slot.recommended || []).filter((r) =>
+            (r.itemName || "").includes("카드")
+          ),
+        }));
+
+        // 가격 조회
+        const recItemIds = new Set();
+        for (const slot of cardOnly)
+          for (const r of slot.recommended)
+            if (r?.itemId) recItemIds.add(r.itemId);
+
+        const priceMapForRecommend = await Optimizer.fetchPricesByItemId([
+          ...recItemIds,
+        ]);
+
+        // 가격 주입
+        const addRecommendedEquipObj = cardOnly.map((slot) => {
+          const withPrice = slot.recommended
+            .map((r) => {
+              const price = priceMapForRecommend.get(r.itemId) ?? null;
+              return { ...r, price };
+            })
+            .filter(
+              (r) =>
+                r.price &&
+                Number.isFinite(r.price.lowestPrice) &&
+                r.price.lowestPrice > 0
+            );
+
+          withPrice.sort((a, b) => b.score - a.score);
+
+          return {
+            slotId: slot.slotId,
+            slotName: slot.slotName,
+            equippedItemId: slot.equippedItemId,
+            equippedItemName: slot.equippedItemName,
+            currentStats: slot.currentStats,
+            currentSkills: slot.currentSkills,
+            recommended: withPrice,
+          };
+        });
+
+        const upgradeNeededSlots = addRecommendedEquipObj.filter(
+          (obj) => obj.recommended.length > 0
+        );
+
+        const enchantRecommendationsObj = Object.fromEntries(
+          addRecommendedEquipObj.map((s) => [
+            s.slotId,
+            {
+              slotId: s.slotId,
+              slotName: s.slotName,
+              equippedItemId: s.equippedItemId,
+              equippedItemName: s.equippedItemName,
+              currentStats: s.currentStats,
+              currentSkills: s.currentSkills,
+              recommended: s.recommended,
+            },
+          ])
+        );
+
+        const response = {
+          character: pickCharMeta(equipObj),
+          characterType: "buffer",
+          summary: {
+            totalSlots: equipment.length,
+            upgradeNeededSlots: upgradeNeededSlots.length,
+            recommendedPerSlot: safeTopN,
+          },
+          enchantRecommendations: enchantRecommendationsObj,
+        };
+
+        // 예산 플랜 (버퍼용)
+        const budget = gold !== undefined ? Number(gold) : null;
+        if (budget !== null) {
+          if (!Number.isFinite(budget) || budget <= 0) {
+            return reply
+              .status(400)
+              .send({ error: "gold must be positive number" });
+          }
+
+          const slotMap = new Map();
+          for (const slot of upgradeNeededSlots) {
+            const cands = slot.recommended
+              .map((r) => ({
+                slotId: slot.slotId,
+                slotName: slot.slotName,
+                equippedItemName: slot.equippedItemName,
+                itemId: r.itemId,
+                itemName: r.itemName,
+                upgrade: r.upgrade,
+                price: r.price,
+                deltaScore: r.score,
+                baseScore: 0,
+                candidateScore: r.score,
+                statDiff: r.statDiff,
+                skillDiff: r.skillDiff,
+                rarity: r.rarity,
+              }))
+              .sort((a, b) => b.deltaScore - a.deltaScore)
+              .slice(0, Number(process.env.TOP_DELTA_PER_SLOT ?? 8));
+            slotMap.set(slot.slotId, cands);
+          }
+
+          const PRICE_UNIT = Number(process.env.PRICE_UNIT ?? 100000);
+          const planRes = Optimizer.selectByBudgetMCKP(
+            slotMap,
+            budget,
+            PRICE_UNIT,
+            sortMode
+          );
+
+          response.budget = budget;
+          response.plan = {
+            spent: planRes.spent,
+            remain: planRes.remain,
+            increaseStats: calculateBufferStatIncrease(
+              planRes.chosen,
+              enchantRecommendationsObj
+            ),
+            increaseSkills: calculateBufferSkillIncrease(
+              planRes.chosen,
+              enchantRecommendationsObj,
+              jobId
+            ),
+            chosen: planRes.chosen.map((x) => ({
+              slotId: x.slotId,
+              slotName: x.slotName,
+              equippedItemName: x.equippedItemName,
+              itemId: x.itemId,
+              itemName: x.itemName,
+              price: x.price,
+              score: x.deltaScore,
+              baseScore: 0,
+              deltaScore: x.deltaScore,
+              efficiency:
+                x.price && x.price.lowestPrice
+                  ? x.deltaScore / x.price.lowestPrice
+                  : null,
+              statDiff: x.statDiff,
+              skillDiff: x.skillDiff,
+              rarity: x.rarity,
+            })),
+            totalDelta: planRes.totalDelta,
+          };
+
+          const flattened = Array.from(slotMap.values()).flat();
+          response.bestPerSlot = summarizeBestPerSlotBuffer(flattened);
+        }
+
+        return reply.send(response);
+      }
 
       // 3) 최고 속강 타입(예: "화속성강화") 추출
       const filterElemKey = Enchants.pickTopElementKeyFromStatus(
@@ -421,4 +586,73 @@ function summarizeBestPerSlot(cands) {
     };
   }
   return out;
+}
+function summarizeBestPerSlotBuffer(cands) {
+  const best = new Map();
+  for (const c of cands) {
+    const prev = best.get(c.slotId);
+    const eNow =
+      c.price && c.price.lowestPrice
+        ? c.deltaScore / c.price.lowestPrice
+        : -Infinity;
+    const ePrev =
+      prev && prev.price && prev.price.lowestPrice
+        ? prev.deltaScore / prev.price.lowestPrice
+        : -Infinity;
+    if (!prev || eNow > ePrev) best.set(c.slotId, c);
+  }
+  const out = {};
+  for (const x of best.values()) {
+    out[x.slotId] = {
+      slotId: x.slotId,
+      slotName: x.slotName,
+      itemId: x.itemId,
+      itemName: x.itemName,
+      upgrade: x.upgrade,
+      price: x.price,
+      deltaScore: x.deltaScore,
+      statDiff: x.statDiff,
+      skillDiff: x.skillDiff,
+      efficiency:
+        x.price && x.price.lowestPrice
+          ? x.deltaScore / x.price.lowestPrice
+          : null,
+    };
+  }
+  return out;
+}
+
+function calculateBufferStatIncrease(chosen, recommendations) {
+  return chosen.reduce((acc, cur) => {
+    const rec = recommendations[cur.slotId];
+    if (!rec || !rec.currentStats) return acc;
+
+    const statDiff = cur.statDiff?.byStat || {};
+    Object.entries(statDiff).forEach(([k, v]) => {
+      const nk = BufferEnchants.normalizeName(k);
+      if (nk === "모험가명성") return;
+      if (v.delta !== 0) {
+        acc[k] = (acc[k] || 0) + v.delta;
+      }
+    });
+
+    return acc;
+  }, {});
+}
+
+function calculateBufferSkillIncrease(chosen, recommendations, jobId) {
+  return chosen.reduce((acc, cur) => {
+    const skillDiff = cur.skillDiff?.bySkill || {};
+    Object.entries(skillDiff).forEach(([key, skillInfo]) => {
+      // 특정 직업만 필터링 (jobId가 있는 경우)
+      if (jobId && skillInfo.jobId !== jobId) return;
+
+      if (skillInfo.delta !== 0) {
+        const displayKey = `${skillInfo.skillName} (${skillInfo.jobName})`;
+        acc[displayKey] = (acc[displayKey] || 0) + skillInfo.delta;
+      }
+    });
+
+    return acc;
+  }, {});
 }

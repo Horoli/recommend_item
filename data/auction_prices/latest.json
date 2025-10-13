@@ -1,519 +1,944 @@
 {
   "meta": {
-    "fetchedAt": "2025-08-27T00:11:13.960+09:00",
-    "count": 102,
+    "fetchedAt": "2025-10-13T12:14:28.320+09:00",
+    "count": 187,
     "note": "Neople DF auction lowestPrice (latest only)"
   },
   "items": {
+    "3f12849e5fef0bd904ffe61f04cdbdc9": {
+      "itemName": "멸절의 폭룡왕 바칼 보주",
+      "lowestPrice": 22500000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
     "42ee831ce6b283ecd8b06969caad7894": {
       "itemName": "멸절의 폭룡왕 바칼 카드",
-      "lowestPrice": 16222222,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 8850000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "0f91e93dd9fb5023e044358597d3a27e": {
       "itemName": "볼트 MX_3 보주",
-      "lowestPrice": 1678988,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "3f12849e5fef0bd904ffe61f04cdbdc9": {
-      "itemName": "멸절의 폭룡왕 바칼 보주",
-      "lowestPrice": 37000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1200000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "2e59d40e70bd397a7712d9aaf46f7403": {
       "itemName": "기억과 안개의 신, 무 카드",
-      "lowestPrice": 16444444,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 9288888,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "738222cd9256bd9059ed40bd4aec8494": {
       "itemName": "볼트 MX_3 카드[이벤트]",
       "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "45f15b86075e7bc48ba6d96fa276bda7": {
       "itemName": "기억과 안개의 신, 무 보주",
-      "lowestPrice": 27400000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "e52e58f1079f1c963df5a55e45b93680": {
-      "itemName": "매드 리케 카드",
-      "lowestPrice": 179999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 19999999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "4c081219ae091041449a163cc0544997": {
       "itemName": "빛의 괴수 피톤 카드",
-      "lowestPrice": 188800,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 70000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "e52e58f1079f1c963df5a55e45b93680": {
+      "itemName": "매드 리케 카드",
+      "lowestPrice": 70000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "4d1ca26707323c6274a35b3699c1c977": {
       "itemName": "볼트 MX_3 카드",
-      "lowestPrice": 187700,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 64000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "d12d35199a50f39da2d6b0427e5b7c7e": {
       "itemName": "빛의 괴수 피톤 보주",
-      "lowestPrice": 1888888,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1699999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "d84d675db38fe50feffb9376c20cbd37": {
       "itemName": "매드 리케 보주",
-      "lowestPrice": 1639999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "b356ae6815b9989878b3819489c29e08": {
-      "itemName": "빛의 괴수 피톤 카드[이벤트]",
-      "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1539000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "4b013610ef464bf56ef907b28be33598": {
       "itemName": "순결한 파이디온 카드[이벤트]",
       "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "b356ae6815b9989878b3819489c29e08": {
+      "itemName": "빛의 괴수 피톤 카드[이벤트]",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "0773bb6687e6838307abd5b989c6dde5": {
       "itemName": "매드 리케 카드[이벤트]",
       "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "352ff5ac5ea2c44ee5047decbf76dca4": {
       "itemName": "반야 보주",
-      "lowestPrice": 1199999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1555555,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "8604404b0f52d802a35e12fd204ee636": {
       "itemName": "순결한 파이디온 카드",
-      "lowestPrice": 199000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 70001,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "5740ce083dc767f2ef12d387c9acf9a8": {
       "itemName": "되살아난 골드 크라운 보주",
-      "lowestPrice": 1199999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1800000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "d8f9a6ed79ebea79678f26fa8f68f444": {
       "itemName": "반야 카드",
-      "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 70001,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "202dbb114fb00d811886ff5025dcdd8b": {
       "itemName": "순결한 파이디온 보주",
-      "lowestPrice": 1999999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1799999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "8f7cd2b67d7a99b48cfdf4aa74d72a21": {
       "itemName": "되살아난 골드 크라운 카드[이벤트]",
       "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "0a51ae04ab9e7b6747b5cfea0376dafb": {
       "itemName": "반야 카드",
       "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "e4d0b97aa0b8a2fa8f606837824681d7": {
       "itemName": "황금의 광채 베누스 보주",
-      "lowestPrice": 6000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 4787878,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "6f48ce12a44f3234635573a6ba0615d8": {
       "itemName": "폭주하는 욕망의 현신 카드",
-      "lowestPrice": 70000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 60777777,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "ed2ff8e7180a903dd7af6148a27cb337": {
       "itemName": "되살아난 골드 크라운 카드",
-      "lowestPrice": 99999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 64001,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "d9b8fb2e0aaeead63f6ab2c99b8bb3ae": {
       "itemName": "백금의 행운, 엘리브 카드",
-      "lowestPrice": 48000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 41500000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "c16f640c48f0dbeb7d7d3bfb1faaecaf": {
       "itemName": "폭주하는 욕망의 현신 보주",
-      "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "c9cf9a781c7e53f3d38f7ad319acabbb": {
-      "itemName": "백금의 행운, 엘리브 보주",
-      "lowestPrice": 53599445,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 73990000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "9f765670c9fdefeec6a7b31571748d04": {
       "itemName": "폭음 크래시머 카드",
-      "lowestPrice": 8000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 5802306,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "c9cf9a781c7e53f3d38f7ad319acabbb": {
+      "itemName": "백금의 행운, 엘리브 보주",
+      "lowestPrice": 46666665,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "6c45d5c14e109bd8a3202f0d245cd619": {
       "itemName": "황금의 광채 베누스 카드",
-      "lowestPrice": 2280000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1399997,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "379076cdc1a8273103a3ff5f12929843": {
       "itemName": "폭음 크래시머 보주",
-      "lowestPrice": 15289984,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 7000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "99bd9349d1decec666c6162382b96da9": {
       "itemName": "불신위괴 라르고 카드",
-      "lowestPrice": 1450000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1899900,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "782eed72c6ce2a015b7b9d08516a6dc4": {
       "itemName": "적아 울라드 카드",
-      "lowestPrice": 1399000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1199900,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "2e2f841e760d7d14feb08f0cc5791b65": {
       "itemName": "연구소장 엘디르 카드",
-      "lowestPrice": 52480000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 42900000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "7da386fa47ba8557dd079261e124f2b4": {
       "itemName": "불신위괴 라르고 보주",
-      "lowestPrice": 9199949,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 7880000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "20e170f1c81bec65543d06168dec254e": {
       "itemName": "적아 울라드 보주",
-      "lowestPrice": 1844200,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1470000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "3e882e0e308972abc7bab3d2d2398c95": {
       "itemName": "연구소장 엘디르 보주",
-      "lowestPrice": 63000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 52000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "752294fe685f17b9ce90aeb2391e14d5": {
       "itemName": "불길한 사벨리 카드",
-      "lowestPrice": 2160000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 3999997,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "0bab2072ca12e18547df3de7e6967aa0": {
       "itemName": "요기를 머금은 요무무 카드",
-      "lowestPrice": 11600000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 7299999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "fe8f36362bd8bfbbe3607effebb48a6a": {
       "itemName": "연구소장 엘디르 카드",
       "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "4e4faabf544644a0f937a23b1ce6b9b3": {
       "itemName": "불길한 사벨리 보주",
-      "lowestPrice": 3700000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 5999998,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "5e0f89f9e5a6a51012f25ea20ae6cc29": {
       "itemName": "요기를 머금은 요무무 보주",
-      "lowestPrice": 21477777,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 12222217,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "0bf75766fec3632153b8dcfd2b925ae6": {
       "itemName": "GB-4 디리겐트 보주",
-      "lowestPrice": 1800000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1990000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "5478164ec2b6cc76a757f9ca2301542c": {
       "itemName": "심연을 걷는 자 카드",
-      "lowestPrice": 1440000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "42402225812c0c76d2b21e166f595d26": {
-      "itemName": "GB-1 햅스 카드",
-      "lowestPrice": 1468000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1349000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "5090544cdc9d25c91c9c53fcb3159f69": {
       "itemName": "요기를 머금은 요무무 보주",
       "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "42402225812c0c76d2b21e166f595d26": {
+      "itemName": "GB-1 햅스 카드",
+      "lowestPrice": 1499999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "a47bd31e5a2c7808e6404689147b5c60": {
       "itemName": "심연을 걷는 자 보주",
-      "lowestPrice": 1885000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "dc2543fde725900b04df6e16c77f4978": {
-      "itemName": "GB-1 햅스 보주",
-      "lowestPrice": 8149999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1850000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "a89abf30aead907737317589b63a7764": {
       "itemName": "닻 내리는 훌리즈 카드",
-      "lowestPrice": 94000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 63904,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "dc2543fde725900b04df6e16c77f4978": {
+      "itemName": "GB-1 햅스 보주",
+      "lowestPrice": 1890000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "8a6b8978bf63617e97d8e2b60574cb12": {
       "itemName": "GB-4 디리겐트 카드",
-      "lowestPrice": 1450000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1490000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "ef8a0975f5f9f928298984a81d6c0f8e": {
       "itemName": "닻 내리는 훌리즈 보주",
-      "lowestPrice": 1979999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1499990,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "4700a8023470f270ca0400b19bd6bf17": {
       "itemName": "퀸 디스트로이어 카드",
-      "lowestPrice": 1440000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "175034770d51d35cc39c7aa8746b0616": {
-      "itemName": "불안정한 균열 카드",
-      "lowestPrice": 1430000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1640000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "e9b0620cbed35156d8298624150c0065": {
       "itemName": "첫 기억을 간직한 자 보주",
       "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "175034770d51d35cc39c7aa8746b0616": {
+      "itemName": "불안정한 균열 카드",
+      "lowestPrice": 1350000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "12279a2c5956dc2e5846fa5031b4018e": {
       "itemName": "퀸 디스트로이어 보주",
-      "lowestPrice": 2076911,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1890000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "09a601253762209fe85a1ada1e12319e": {
       "itemName": "인공신 프로토타입 카드",
-      "lowestPrice": 26500000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 26899888,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "56c88d366c4d2e785c14528ab92c44ba": {
       "itemName": "불안정한 균열 보주",
-      "lowestPrice": 2380000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1890000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "c1e30babd14b79cb3af085049475563c": {
       "itemName": "인공신 3호 나벨 카드",
-      "lowestPrice": 60444444,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 51000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "091dff09ae9d6e7e3b9d44c11fceeb5e": {
       "itemName": "인공신 프로토타입 보주",
-      "lowestPrice": 32999988,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "60d949ca73fe7451d909668aeb6cbc02": {
-      "itemName": "첫 기억을 간직한 자 카드",
-      "lowestPrice": 28850000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 30499999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "0f9e53dea1284fac92b4300838a5f8d1": {
       "itemName": "인공신 3호 나벨 보주",
-      "lowestPrice": 73999988,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 58799999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "60d949ca73fe7451d909668aeb6cbc02": {
+      "itemName": "첫 기억을 간직한 자 카드",
+      "lowestPrice": 27444444,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "df90f9db0399aea50bd171fff4157fee": {
       "itemName": "둥지짓는 베로로 카드",
-      "lowestPrice": 82000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 62000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "e3c3f6fc71507f826e2d8271dfa4a895": {
       "itemName": "시브의 보조장비 보주",
       "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "4bc42411ce4b675bdb4569016c7c744b": {
       "itemName": "숲의 전언자 카밀라 카드",
-      "lowestPrice": 4650000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 6800000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "dd0d328de45fa673d7e7072ca46a4fc5": {
       "itemName": "둥지짓는 베로로 보주",
-      "lowestPrice": 2399999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 2499892,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "ab9dbde7dbdcc928b59b2e61be3eb772": {
       "itemName": "아홉 꼬리 블로나 카드",
-      "lowestPrice": 21944444,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 17999900,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "7f7287e9bdd66510882114ae03110144": {
       "itemName": "숲의 전언자 카밀라 보주",
-      "lowestPrice": 7950000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 9350000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "1885eef614bf0c39616498cd75fbbc28": {
       "itemName": "아홉 꼬리 블로나 보주",
-      "lowestPrice": 32000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 33980000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "3586914de44ed2371ae76d7424e1fe17": {
       "itemName": "무지의 악 나벨 카드",
-      "lowestPrice": 243000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 197000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "da4e58505a7e73cbc0f3128909263a28": {
       "itemName": "시브의 보조장비 보주",
-      "lowestPrice": 41300000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 40777500,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "03c4f812f356f96aeb516c653321d669": {
       "itemName": "무지의 악 나벨 보주",
-      "lowestPrice": 279900000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 210000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "65d29f31b1311d9f297418da661dedd3": {
       "itemName": "파괴의 트라우마트 보주",
-      "lowestPrice": 1000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "1a1b5a414db027a719c1166e1dfcc42d": {
-      "itemName": "불의 숨결을 내는 자 카드",
-      "lowestPrice": 12500000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 990000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "66d79150bbfb6089b7b596234b1c6d99": {
       "itemName": "무의식의 테르미누스 보주",
-      "lowestPrice": 28000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 20000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "1a1b5a414db027a719c1166e1dfcc42d": {
+      "itemName": "불의 숨결을 내는 자 카드",
+      "lowestPrice": 7988888,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "f2c69fabbedd5f6241fb515bede62c85": {
       "itemName": "파괴의 트라우마트 카드",
-      "lowestPrice": 149998,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 99900,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "82860b0263f402ba27985cbf66e634ef": {
       "itemName": "무결한 죽음 비시마 카드",
-      "lowestPrice": 8150000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 2999999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "3a307802b2390b55b89255139766a527": {
       "itemName": "불의 숨결을 내는 자 보주",
-      "lowestPrice": 27444444,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "69bfe125c97ab125fc646f05ef55f2bb": {
-      "itemName": "무결한 죽음 비시마 보주",
-      "lowestPrice": 11900000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "4b1f9f44f294a0f93588dea0d39a80ac": {
       "itemName": "큰 어른 루톤 카드",
-      "lowestPrice": 1499999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1350000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "69bfe125c97ab125fc646f05ef55f2bb": {
+      "itemName": "무결한 죽음 비시마 보주",
+      "lowestPrice": 7899999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "f1b324e2b3ce1f13edf79147b95c7b5a": {
       "itemName": "무의식의 테르미누스 카드",
-      "lowestPrice": 13800000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 8286666,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "834dc748f8bc9cbeb553b26e3c34715c": {
       "itemName": "큰 어른 루톤 보주",
-      "lowestPrice": 1989888,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1800000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "a05c3f54258c5347fa4b7f43ebd7a0a6": {
       "itemName": "요격대 테아스 카드",
-      "lowestPrice": 1800000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 1400000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "9c88e4d216a1bca717f605a76b3713f0": {
+      "itemName": "더 파이퍼 보주",
+      "lowestPrice": 17111111,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "012982b7a8ac64c1254465f4b4a2df5f": {
+      "itemName": "선별자 룬디어 카드",
+      "lowestPrice": 18181818,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "4b828249cc59a64b1c9cfb43644b54fe": {
+      "itemName": "요격대 테아스 보주",
+      "lowestPrice": 2999999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "fabcd3a01597550d74739baca0cd60d3": {
+      "itemName": "역병을 담은 눈, 옴마 카드",
+      "lowestPrice": 5774999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "fcb3173136048504b6fabf574eac94ce": {
+      "itemName": "선별자 룬디어 보주",
+      "lowestPrice": 24333333,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "eec286dfb9a2ce61656fea8300e0720b": {
+      "itemName": "혼돈의 천사 루치펠 카드",
+      "lowestPrice": 63992,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "d25d84b3820a074eb639b33b28257012": {
+      "itemName": "역병을 담은 눈, 옴마 보주",
+      "lowestPrice": 14900000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "aefd43bba0bdfee5203fde4a954b6e59": {
+      "itemName": "더 파이퍼 카드",
+      "lowestPrice": 8800636,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "dda2c35be00646c3e9bd1fdba6ddccc2": {
+      "itemName": "혼돈의 천사 루치펠 보주",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "d869a5f5a2f5d9ae636763285a29a78d": {
+      "itemName": "구속의 공작 유리스 카드",
+      "lowestPrice": 176500000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "eb4e124953091b0f8c8ffab1ab93d994": {
+      "itemName": "땅지기 슈므 보주",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "d5841162bb0f375c96dedac1bab053e2": {
+      "itemName": "전격의 스테이츠 카드",
+      "lowestPrice": 64000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "fa8fdef47c38cc4a4c79877b9da8ea8c": {
+      "itemName": "구속의 공작 유리스 보주",
+      "lowestPrice": 188000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "5295022c149f2b353b70f89f796dbc34": {
+      "itemName": "대천사 미카엘 카드",
+      "lowestPrice": 64900,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "a1609fd2058205f42092f7574dfc96bf": {
+      "itemName": "전격의 스테이츠 보주",
+      "lowestPrice": 1621121,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "12a4a6ce6c34b550563f9fc9bf2ec3e6": {
+      "itemName": "뒤쫓는 자 제논 카드",
+      "lowestPrice": 1900000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "810e1843c25805d7964aba8e9208ac79": {
+      "itemName": "대천사 미카엘 보주",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "833fcb5ea79e469b8f0bbb7fb10881d4": {
+      "itemName": "땅지기 슈므 카드",
+      "lowestPrice": 65000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "659d88af17b3e2c915340b0d37250b4e": {
+      "itemName": "뒤쫓는 자 제논 보주",
+      "lowestPrice": 4999998,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "d9f3cf73774a5f8dc857c74dccfdfa98": {
+      "itemName": "졸린 눈의 로턴드 카드",
+      "lowestPrice": 64904,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "6cd16e3b592a40fda19657a39ff951c0": {
+      "itemName": "미의 여신 베누스 카드",
+      "lowestPrice": 1299999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "0239b1478c2a8214e70eac57581cddd2": {
+      "itemName": "안개신의 무의식 카드",
+      "lowestPrice": 1239000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "1e3fb7481ccfedaa38b1bde93521497f": {
+      "itemName": "졸린 눈의 로턴드 보주",
+      "lowestPrice": 1987121,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "9a72c0484e4bbe4eb9b4bf00671231af": {
+      "itemName": "미의 여신 베누스 보주",
+      "lowestPrice": 1999999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "5935a3df1a10783d210aee9bd1d4aee4": {
+      "itemName": "안개신의 무의식 보주",
+      "lowestPrice": 2399999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "44e9c3ea3e1c396e265215baa532aac6": {
+      "itemName": "안개의 감시자 브림 보주",
+      "lowestPrice": 2499951,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "ca06233520362ea0aa8842919fde1c5d": {
+      "itemName": "욕망과 미의 여신 베누스 카드",
+      "lowestPrice": 45000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "446810ea46c02b3a6b8146460e88a696": {
+      "itemName": "미의 여신 베누스 파티 신청 프레임 & 파티 프레임 상자",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "a78228f65b4fb154e210d0d4b84a5508": {
+      "itemName": "배낭지기 배니부 카드",
+      "lowestPrice": 4890000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "2552a0f00dab450faab5cd51478d78c8": {
+      "itemName": "욕망과 미의 여신 베누스 보주",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "23bc91d20f0640bff7056bb9fc1a9f28": {
+      "itemName": "일각수 크라켄 카드",
+      "lowestPrice": 1280009,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "a571176a42f9e75c4f57f1fc67aa6fb4": {
+      "itemName": "배낭지기 배니부 보주",
+      "lowestPrice": 11999884,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "89638d4839dd2e640965835a05159160": {
+      "itemName": "안개의 감시자 브림 카드",
+      "lowestPrice": 1499999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "a878a15237d4f2d32bf2bea7d53b708b": {
+      "itemName": "일각수 크라켄 보주",
+      "lowestPrice": 4600000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "c09eac574c6fb330c8ef3795d54d2371": {
+      "itemName": "코드네임 게이볼그 카드",
+      "lowestPrice": 1380000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "81b27326f546e74affe16afa08341db2": {
+      "itemName": "땅지기 카메린 보주",
+      "lowestPrice": 1270000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "411ab00487019f2b90c3cfc6f07674f0": {
+      "itemName": "부패하는 사룡 스피라찌 카드",
+      "lowestPrice": 1250000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "935fe56935ab43597c3101e0abb359d0": {
+      "itemName": "코드네임 게이볼그 보주",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "809f27840312af5097094cf9a09548f6": {
+      "itemName": "최후의 테아나 카드",
+      "lowestPrice": 46600000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "4932d08879da2c9c3e3fa28b43ee120a": {
+      "itemName": "부패하는 사룡 스피라찌 보주",
+      "lowestPrice": 2687955,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "102ff554f314146e4b335d905dcb0c5b": {
+      "itemName": "안개의 사제 클라디스 보주",
+      "lowestPrice": 9498899,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "5658c866c7d9159b08e50e6f96c55e27": {
+      "itemName": "최후의 테아나 보주",
+      "lowestPrice": 62222222,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "b91b4a562579211afc372fc93ad2097f": {
+      "itemName": "땅지기 카메린 카드",
+      "lowestPrice": 1199999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "ca53590cfee44ca52484e380c041b99b": {
+      "itemName": "평온한 로절린드 카드",
+      "lowestPrice": 1450000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "b7e9b64984dad813f6c9f88b8b37ba52": {
+      "itemName": "최후의 테아나 카드",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "21c45a8810f05f13da5d00a393d6e20c": {
+      "itemName": "평온한 로절린드 보주",
+      "lowestPrice": 2444444,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "7bc84924f1c0ac2db29c49b251155821": {
+      "itemName": "금룡 느마우그 카드",
+      "lowestPrice": 1232253,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "5df8239864403dffa9466bbc82ff39b7": {
+      "itemName": "안개의 사제 클라디스 카드",
+      "lowestPrice": 2300000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "dfb60de23827226ee2c7a83225f66b27": {
+      "itemName": "금룡 느마우그 보주",
+      "lowestPrice": 5455444,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "8385f8e92ee9413839b84703f68271db": {
+      "itemName": "광포의 마흐나발 카드",
+      "lowestPrice": 102000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "eaef4b7cdc5184986e685998dcc612af": {
+      "itemName": "과학자 모리 보주",
+      "lowestPrice": 33000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "a269bb36d222f9af9ee698132ca7fe4f": {
+      "itemName": "무경계의 테르미누스 카드",
+      "lowestPrice": 22500000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "1cf50c40286d59d72edea0ff34aa36be": {
+      "itemName": "광포의 마흐나발 보주",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "078630e1f610eee7c724e477d13425b2": {
+      "itemName": "인공신 2호 아니마 카드",
+      "lowestPrice": 36999995,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "b64ec1a4807e3b4ed6a95959818ccd53": {
+      "itemName": "무경계의 테르미누스 보주",
+      "lowestPrice": 29000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "5f5d0a2e9dd8050b6e3c4655a09cf296": {
+      "itemName": "기억의 도서관지기 카드",
+      "lowestPrice": 1799770,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "6898840c20be827890ac4c9db3dd12c9": {
+      "itemName": "인공신 2호 아니마 보주",
+      "lowestPrice": 43949999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "2e4d6eb8d65040b928264d972a5b03e6": {
+      "itemName": "기억의 도서관지기 보주",
+      "lowestPrice": 2867767,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "b253dede93436baff46e560febb7ecff": {
+      "itemName": "과학자 모리 카드",
+      "lowestPrice": 20530000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "dd999797ce33af6eb891ffac52bc19a1": {
+      "itemName": "빛나는 다이앤 카드",
+      "lowestPrice": 1699999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "56728009d7b3caea7b49caf2c45e8ff9": {
+      "itemName": "기억의 도서관지기 프릴 케이프 망토",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "72062e468c2dd231c258809faab14870": {
+      "itemName": "기억의 도서관지기 파티 신청 프레임 상자",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "bcf7895b985f283b2fdbc4f8af5ed7e1": {
+      "itemName": "빛나는 다이앤 보주",
+      "lowestPrice": 2499999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "731bb342a33361a843e4c492f39a8b40": {
+      "itemName": "기억의 도서관지기 별 회로 문양",
+      "lowestPrice": 50100123,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "2c25ad8cfb7c95dd2b3ce85d735bcd12": {
+      "itemName": "기억의 도서관지기 프릴 케이프 원피스",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "dea191c838aaed4f63ea1d22e8479618": {
+      "itemName": "기억의 도서관지기 별의 증표",
+      "lowestPrice": 60000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "e0fc4ad317e2071879e17c858e080ff7": {
+      "itemName": "기억의 도서관지기 별 구두",
+      "lowestPrice": 399999999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "f6afb8ba919b41b978812d7e73f1ad59": {
+      "itemName": "기억의 도서관지기 숏팬츠와 니삭스",
+      "lowestPrice": 150000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "317572d6f6b9ce536ee85a1630dff637": {
+      "itemName": "기억의 도서관지기 웨이스트 코트",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "76451c59b4a79b0c2a8387945959e7a9": {
+      "itemName": "기억의 도서관지기 별이 반짝이는 천",
+      "lowestPrice": 120000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "6f24fb70924a771605eb13d43105b68f": {
+      "itemName": "기억의 도서관지기 캐주얼 팬츠",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "979d2ed5d4c51c1a7a69500b2e898522": {
+      "itemName": "기억의 도서관지기 캐주얼 로퍼",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "e35d7d2fa0c9b970d63a1cad36a071a2": {
+      "itemName": "기억의 도서관지기 시크릿 투톤 롱 헤어",
+      "lowestPrice": 350000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "38e327389878dd463b63d88c0e04f8c8": {
+      "itemName": "기억의 도서관지기 별자리 후드",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "120f9ebf644a59c7d93c45e0f8d6a927": {
+      "itemName": "기억의 도서관지기 별자리 망토",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "72a4716cdf8d56242c35605327221fe5": {
+      "itemName": "오만의 악 아니마 보주",
+      "lowestPrice": 198888888,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "45be564b9278dff548afdd20670aad07": {
+      "itemName": "기억의 도서관지기 투톤 헤어",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "eb3adcdfa223be07b03507333bb83971": {
+      "itemName": "기억의 도서관지기 기억의 책",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "ff0223f31a9b62e509152eabc8ecb031": {
+      "itemName": "연합 사령관 이리네 카드",
+      "lowestPrice": 8999999,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "7c2c656bf81c7243b9d3bc2ca9496269": {
+      "itemName": "기억의 도서관지기 메이크업과 귀걸이",
+      "lowestPrice": null,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "70152fcd021fcc1d1a304a1fadd0bf56": {
+      "itemName": "파고드는 스펀저 카드",
+      "lowestPrice": 4498888,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "c9b9af8157e8836eb685c6d7a2bc19d4": {
+      "itemName": "연합 사령관 이리네 보주",
+      "lowestPrice": 16990000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "f27d1f287df98245eab3a48dc4a2aae5": {
+      "itemName": "오만의 악 아니마 카드",
+      "lowestPrice": 180000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "a161137c22c6333193239a08c7376ef3": {
+      "itemName": "파고드는 스펀저 보주",
+      "lowestPrice": 13000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "fb9fbe0aa3e53f9b1e000acc24857954": {
+      "itemName": "부조화의 로페즈 카드",
+      "lowestPrice": 9045000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "a9b65c5060a40a11f8a653b553c531aa": {
+      "itemName": "베누스의 보석함 보주",
+      "lowestPrice": 1080000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "3107c436d0ae299b8da394ed937e411f": {
+      "itemName": "다정한 죽음 세니르 카드",
+      "lowestPrice": 1204022,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "3b23e4fe1ef71d241231e643c3f81ce0": {
+      "itemName": "부조화의 로페즈 보주",
+      "lowestPrice": 27777777,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "446ceff7e0823f7ad7fc7cb866165764": {
+      "itemName": "흰 구름 감시자 라르고 카드",
+      "lowestPrice": 1210000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "0be04b4437a93cae41c210b619aadcc8": {
+      "itemName": "다정한 죽음 세니르 보주",
+      "lowestPrice": 1300000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "a3cccf006f4bd8e6492d0a072cf03ac8": {
+      "itemName": "흰 구름 감시자 라르고 보주",
+      "lowestPrice": 1500000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "6f008c0c92c0346b114d2ffdafb92292": {
+      "itemName": "프로스트의 전설 플래티넘[35Lv]",
+      "lowestPrice": 32990000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "15c2c2f1b79649740f44af3ff8a53c6b": {
+      "itemName": "베누스의 보석함 카드",
+      "lowestPrice": 68915,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "7ff744342ad0586c9d62a73c4c684bde": {
       "itemName": "프로스트의 전설 플래티넘[40Lv]",
-      "lowestPrice": 39499999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 35666666,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "cdfc1227f1ab61a959cb8dc568fb8198": {
       "itemName": "프로스트의 전설 플래티넘 칭호 선택 상자",
       "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "4b828249cc59a64b1c9cfb43644b54fe": {
-      "itemName": "요격대 테아스 보주",
-      "lowestPrice": 3600000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "53ebb215d0249e099ed0cd456e7ff2e4": {
-      "itemName": "프로스트의 전설 플래티넘[45Lv]",
-      "lowestPrice": 39390543,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "7cdecc590ff1920d9cbffc684070d72a": {
-      "itemName": "프로스트의 전설 플래티넘[30Lv]",
-      "lowestPrice": 40026324,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "a33cbd6ee4519308cafb65cd3189b279": {
-      "itemName": "프로스트의 전설 플래티넘[80Lv]",
-      "lowestPrice": 39599000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "1b483a53811c5c3b38651416b9570efd": {
-      "itemName": "프로스트의 전설 플래티넘[60Lv]",
-      "lowestPrice": 43000000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "6f008c0c92c0346b114d2ffdafb92292": {
-      "itemName": "프로스트의 전설 플래티넘[35Lv]",
-      "lowestPrice": 39887878,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "2bb1c86f1ed2644c156c0e24ff11d5b2": {
-      "itemName": "프로스트의 전설 플래티넘[50Lv]",
-      "lowestPrice": 43244444,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "3079953d6096df87fd02700f57b3efb5": {
-      "itemName": "프로스트의 전설 플래티넘[70Lv]",
-      "lowestPrice": 47900000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "b89d2344496f87896fafd505dc70c092": {
-      "itemName": "프로스트의 전설 플래티넘[85Lv]",
-      "lowestPrice": 44440000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
-    },
-    "42fd3d4144f788b37ed19c70281dcda6": {
-      "itemName": "프로스트의 전설",
-      "lowestPrice": 30739999,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "fd881f22fb227bf52def891e1c8ad5b1": {
       "itemName": "프로스트의 전설 플래티넘[75Lv]",
-      "lowestPrice": 39443333,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 32990000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
-    "012982b7a8ac64c1254465f4b4a2df5f": {
-      "itemName": "선별자 룬디어 카드",
-      "lowestPrice": 21888888,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+    "53ebb215d0249e099ed0cd456e7ff2e4": {
+      "itemName": "프로스트의 전설 플래티넘[45Lv]",
+      "lowestPrice": 33990000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
-    "c9f4e5017aa56ed86709f9fd86867ec1": {
-      "itemName": "프로스트의 전설 플래티넘[95Lv]",
-      "lowestPrice": 44333333,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+    "7cdecc590ff1920d9cbffc684070d72a": {
+      "itemName": "프로스트의 전설 플래티넘[30Lv]",
+      "lowestPrice": 32990000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
-    "fcb3173136048504b6fabf574eac94ce": {
-      "itemName": "선별자 룬디어 보주",
-      "lowestPrice": 33999777,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+    "a33cbd6ee4519308cafb65cd3189b279": {
+      "itemName": "프로스트의 전설 플래티넘[80Lv]",
+      "lowestPrice": 32990000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
-    "fabcd3a01597550d74739baca0cd60d3": {
-      "itemName": "역병을 담은 눈, 옴마 카드",
-      "lowestPrice": 13900000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+    "1b483a53811c5c3b38651416b9570efd": {
+      "itemName": "프로스트의 전설 플래티넘[60Lv]",
+      "lowestPrice": 41999998,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "2bb1c86f1ed2644c156c0e24ff11d5b2": {
+      "itemName": "프로스트의 전설 플래티넘[50Lv]",
+      "lowestPrice": 43500000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
     "821c509ad1f5d4d62a3326cc24f17aa5": {
       "itemName": "프로스트의 전설 플래티넘[100Lv]",
-      "lowestPrice": 40888888,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+      "lowestPrice": 32990000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
-    "d25d84b3820a074eb639b33b28257012": {
-      "itemName": "역병을 담은 눈, 옴마 보주",
-      "lowestPrice": 27888888,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+    "3079953d6096df87fd02700f57b3efb5": {
+      "itemName": "프로스트의 전설 플래티넘[70Lv]",
+      "lowestPrice": 37900000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
-    "aefd43bba0bdfee5203fde4a954b6e59": {
-      "itemName": "더 파이퍼 카드",
-      "lowestPrice": 16800000,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+    "42fd3d4144f788b37ed19c70281dcda6": {
+      "itemName": "프로스트의 전설",
+      "lowestPrice": 23000000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     },
-    "9c88e4d216a1bca717f605a76b3713f0": {
-      "itemName": "더 파이퍼 보주",
-      "lowestPrice": null,
-      "fetchedAt": "2025-08-27T00:11:13.960+09:00"
+    "b89d2344496f87896fafd505dc70c092": {
+      "itemName": "프로스트의 전설 플래티넘[85Lv]",
+      "lowestPrice": 41600212,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
+    },
+    "c9f4e5017aa56ed86709f9fd86867ec1": {
+      "itemName": "프로스트의 전설 플래티넘[95Lv]",
+      "lowestPrice": 37900000,
+      "fetchedAt": "2025-10-13T12:14:28.320+09:00"
     }
   }
 }
