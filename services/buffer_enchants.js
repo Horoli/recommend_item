@@ -284,13 +284,18 @@ class BufferEnchants extends DefaultEnchants {
     const slotId = equip?.slotId;
     const targetJobId = ctx.jobId || null;
     const currentStats = this.toStatMap(equip?.enchant?.status || []);
+    const currentSkills = this.toSkillMap(
+      equip?.enchant?.reinforceSkill || [],
+      targetJobId
+    );
     const candidates = this.getMaxUpgradeCandidatesForSlot(slotId);
 
     const enriched = [];
     for (const c of candidates) {
       const recStats = this.toStatMap(c.status);
+      const recSkills = this.toSkillMap(c.reinforceSkill, targetJobId);
 
-      // 딜러와 동일한 구조로 스탯 diff 계산
+      // 스탯 diff 계산
       const statDiff = this.diffStatusArrays(
         equip?.enchant?.status || [],
         c.status
@@ -303,9 +308,22 @@ class BufferEnchants extends DefaultEnchants {
         targetJobId
       );
 
-      // 총점 계산: 스탯 점수 + 스킬 점수
       const totalScore =
         (statDiff.meta?.deltaScore || 0) + (skillDiff.meta?.skillScore || 0);
+
+      // recStats에 스킬 정보 병합
+      const recStatsWithSkills = {
+        ...recStats,
+        // 스킬 정보를 별도 필드로 추가
+        _skills: recSkills,
+        // 또는 스킬을 스탯처럼 플랫하게 추가
+        // ...Object.fromEntries(
+        //   Object.entries(recSkills).map(([key, skill]) => [
+        //     `skill_${skill.skillName}`,
+        //     skill.level
+        //   ])
+        // )
+      };
 
       enriched.push({
         itemId: c.itemId,
@@ -315,9 +333,8 @@ class BufferEnchants extends DefaultEnchants {
         upgrade: c.upgrade,
         rarity: c.rarity,
         score: totalScore,
-        recStats, // 딜러와 동일하게 recStats 추가
+        recStats: recStatsWithSkills, // 스킬 정보가 포함된 recStats
         diff: {
-          // 딜러와 동일한 구조로 통합
           byStat: statDiff.byStat,
           bySkill: skillDiff.bySkill,
           meta: {
@@ -339,11 +356,8 @@ class BufferEnchants extends DefaultEnchants {
       slotName: equip?.slotName,
       equippedItemId: equip?.itemId,
       equippedItemName: equip?.itemName,
-      currentStats, // 딜러와 동일
-      currentSkills: this.toSkillMap(
-        equip?.enchant?.reinforceSkill || [],
-        targetJobId
-      ),
+      currentStats,
+      currentSkills,
       recommended: better,
     };
   }
