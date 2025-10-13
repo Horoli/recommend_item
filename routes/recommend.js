@@ -262,7 +262,7 @@ module.exports = async function (fastify) {
                 status: r.recStats, // 딜러와 동일하게 recStats 사용
                 rarity: r.rarity,
                 // 필요시 스킬 정보 별도 추출
-                skills: r.recStats._skills,
+                // skills: r.recStats._skills,
               }))
               .sort((a, b) => b.deltaScore - a.deltaScore)
               .slice(0, Number(process.env.TOP_DELTA_PER_SLOT ?? 8));
