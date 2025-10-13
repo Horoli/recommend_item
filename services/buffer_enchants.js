@@ -209,7 +209,6 @@ class BufferEnchants extends DefaultEnchants {
       totalScore += weight * delta;
     }
 
-    console.log(bySkill);
     return { bySkill, skillScore: totalScore };
   }
 
