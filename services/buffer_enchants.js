@@ -301,33 +301,33 @@ class BufferEnchants extends DefaultEnchants {
       const recStats = this.toStatMap(c.status);
 
       // targetJobId에 해당하는 스킬만 추출
-      const skills = {};
-      if (c.reinforceSkill && Array.isArray(c.reinforceSkill)) {
-        for (const jobSkills of c.reinforceSkill) {
-          // targetJobId와 일치하는 직업의 스킬만 처리
-          if (targetJobId && jobSkills.jobId !== targetJobId) continue;
+      // const skills = {};
+      // if (c.reinforceSkill && Array.isArray(c.reinforceSkill)) {
+      //   for (const jobSkills of c.reinforceSkill) {
+      //     // targetJobId와 일치하는 직업의 스킬만 처리
+      //     if (targetJobId && jobSkills.jobId !== targetJobId) continue;
 
-          if (jobSkills.skills && Array.isArray(jobSkills.skills)) {
-            for (const skill of jobSkills.skills) {
-              if (skill.skillId && this.SKILL_TYPES[skill.skillId]) {
-                // SKILL_TYPES에 정의된 스킬만 추가
-                skills[skill.skillId] = {
-                  skillId: skill.skillId,
-                  name: skill.name,
-                  value: skill.value,
-                  type: this.SKILL_TYPES[skill.skillId], // 스킬 타입 추가
-                  weight:
-                    this.SKILL_WEIGHTS[this.SKILL_TYPES[skill.skillId]] ||
-                    this.SKILL_WEIGHTS.default,
-                };
-              }
-            }
-          }
-        }
-      }
+      //     if (jobSkills.skills && Array.isArray(jobSkills.skills)) {
+      //       for (const skill of jobSkills.skills) {
+      //         if (skill.skillId && this.SKILL_TYPES[skill.skillId]) {
+      //           // SKILL_TYPES에 정의된 스킬만 추가
+      //           skills[skill.skillId] = {
+      //             skillId: skill.skillId,
+      //             name: skill.name,
+      //             value: skill.value,
+      //             type: this.SKILL_TYPES[skill.skillId], // 스킬 타입 추가
+      //             weight:
+      //               this.SKILL_WEIGHTS[this.SKILL_TYPES[skill.skillId]] ||
+      //               this.SKILL_WEIGHTS.default,
+      //           };
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
 
       // recStats에 skills 추가
-      recStats.skills = skills;
+      // recStats.skills = skills;
 
       // 딜러와 동일한 구조로 스탯 diff 계산
       const statDiff = this.diffStatusArrays(
