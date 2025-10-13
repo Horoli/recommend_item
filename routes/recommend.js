@@ -175,12 +175,15 @@ module.exports = async function (fastify) {
           ...recItemIds,
         ]);
 
-        // 가격 주입
+        // 가격 주입 - 딜러와 동일한 구조로
         const addRecommendedEquipObj = cardOnly.map((slot) => {
           const withPrice = slot.recommended
             .map((r) => {
               const price = priceMapForRecommend.get(r.itemId) ?? null;
-              return { ...r, price };
+              return {
+                ...r, // 딜러와 동일한 필드들 포함
+                price,
+              };
             })
             .filter(
               (r) =>
@@ -221,9 +224,10 @@ module.exports = async function (fastify) {
           ])
         );
 
+        // 딜러와 동일한 response 구조
         const response = {
           character: pickCharMeta(equipObj),
-          characterType: "buffer",
+          // characterType 제거 또는 별도 필드로 처리
           summary: {
             totalSlots: equipment.length,
             upgradeNeededSlots: upgradeNeededSlots.length,
@@ -232,7 +236,7 @@ module.exports = async function (fastify) {
           enchantRecommendations: enchantRecommendationsObj,
         };
 
-        // 예산 플랜 (버퍼용)
+        // 예산 플랜 - 딜러와 동일한 구조로
         const budget = gold !== undefined ? Number(gold) : null;
         if (budget !== null) {
           if (!Number.isFinite(budget) || budget <= 0) {
@@ -243,7 +247,6 @@ module.exports = async function (fastify) {
 
           const slotMap = new Map();
           for (const slot of upgradeNeededSlots) {
-            console.log(slot.recommended);
             const cands = slot.recommended
               .map((r) => ({
                 slotId: slot.slotId,
@@ -256,9 +259,7 @@ module.exports = async function (fastify) {
                 deltaScore: r.score,
                 baseScore: 0,
                 candidateScore: r.score,
-                status: r.status,
-                statDiff: r.statDiff,
-                skillDiff: r.skillDiff,
+                status: r.recStats, // 딜러와 동일하게 recStats 사용
                 rarity: r.rarity,
               }))
               .sort((a, b) => b.deltaScore - a.deltaScore)
@@ -278,15 +279,52 @@ module.exports = async function (fastify) {
           response.plan = {
             spent: planRes.spent,
             remain: planRes.remain,
-            increaseStats: calculateBufferStatIncrease(
-              planRes.chosen,
-              enchantRecommendationsObj
-            ),
-            increaseSkills: calculateBufferSkillIncrease(
-              planRes.chosen,
-              enchantRecommendationsObj,
-              jobId
-            ),
+            increaseStats: planRes.chosen.reduce((acc, cur) => {
+              const rec = enchantRecommendationsObj[cur.slotId];
+              if (!rec || !rec.currentStats) return acc;
+
+              const before = rec.currentStats;
+              const after = cur.status;
+
+              // 딜러와 동일한 속성강화 통합 로직
+              const consolidateElementEnhancement = (stats) => {
+                const consolidated = { ...stats };
+                let elementEnhValue = 0;
+
+                for (const key of BufferEnchants.ELEMENT_ENH_KEYS || []) {
+                  if (consolidated[key]) {
+                    elementEnhValue = consolidated[key];
+                    delete consolidated[key];
+                    break;
+                  }
+                }
+
+                if (consolidated["모든속성강화"]) {
+                  elementEnhValue = consolidated["모든속성강화"];
+                  delete consolidated["모든속성강화"];
+                }
+
+                if (elementEnhValue > 0) {
+                  consolidated["속성강화"] = elementEnhValue;
+                }
+
+                return consolidated;
+              };
+
+              const consolidatedBefore = consolidateElementEnhancement(before);
+              const consolidatedAfter = consolidateElementEnhancement(after);
+
+              Object.entries(consolidatedAfter).forEach(([k, v]) => {
+                if (k === "모험가명성") return;
+                const current = consolidatedBefore[k] || 0;
+                const delta = v - current;
+                if (delta !== 0) {
+                  acc[k] = (acc[k] || 0) + delta;
+                }
+              });
+
+              return acc;
+            }, {}),
             chosen: planRes.chosen.map((x) => ({
               slotId: x.slotId,
               slotName: x.slotName,
@@ -301,15 +339,14 @@ module.exports = async function (fastify) {
                 x.price && x.price.lowestPrice
                   ? x.deltaScore / x.price.lowestPrice
                   : null,
-              statDiff: x.statDiff,
-              skillDiff: x.skillDiff,
+              status: x.status,
               rarity: x.rarity,
             })),
             totalDelta: planRes.totalDelta,
           };
 
           const flattened = Array.from(slotMap.values()).flat();
-          response.bestPerSlot = summarizeBestPerSlotBuffer(flattened);
+          response.bestPerSlot = summarizeBestPerSlot(flattened); // 딜러와 동일한 함수 사용
         }
 
         return reply.send(response);
