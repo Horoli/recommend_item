@@ -4,37 +4,46 @@ const path = require("path");
 const DefaultEnchants = require("./abstract_enchants");
 
 class BufferEnchants extends DefaultEnchants {
-  //   static DATA_FILE = path.resolve(
-  //     __dirname,
-  //     "../data/recommend_item_details.json"
-  //   );
-
   // 버퍼 스킬 강화 가중치
   static SKILL_WEIGHTS = {
     // 직업별 주요 버퍼 스킬 (스킬 레벨당 점수)
-    default: 50, // 기본 스킬 레벨당 점수
+    // TODO :
+    awakening: 23.5, // 각성 패시브 (1~2각)
+    default: 15.5, // 전직 패시브
+  };
+
+  static SKILL_TYPES = {
+    // 크루세이더(여) - 0c1b401bb09241570d364420b3ba3fd7
+    "1dad88963abdc96b091fcab185a8820d": "awakening_passive", // 신실한 열정
+    "78bd107acd474518b606be1e4fd38239": "default", // 계시 : 아리아
+
+    // 크루세이더(남) - f6a4ad30555b99b499c07835f87ce522
+    "4f2e001e9a19eb7bae50ad1840dfb329": "awakening_passive", // 신념의 오라 (1각)
+    "2c9d9a36c8401bddff6cdb80fab8dc24": "default", // 수호의 은총
+
+    // 인챈트리스 - 3909d0b188e9c95311399f776e331da5
+    "0dbdeaf846356f8b9380f8fbb8e97377": "awakening_passive", // 소악마 (1각)
+    "8d8981a94b8bdd4e3ffad5bc05042080": "default", // 퍼페티어
+
+    // 뮤즈 - b9cb48777665de22c006fabaf9a560b3
+    de3fea2d65c597f4d55c70a02b97fc79: "awakening_passive", // 유명세 (1각)
+    "0ed3148658fe37b3336ccb718dc0fdb0": "default", // 센세이션
+
+    // 패러메딕 - 944b9aab492c15a8474f96947ceeb9e4
+    a8574a8efa365e8e46e805a6e1d7bfef: "awakening_passive", // apius::대응체계(); (1각)
+    "6235960237fdb1b77f2c82b33614dcf4": "default", // apius::전장정보()
   };
 
   // 스탯 가중치 (버퍼용)
   static WEIGHTS = {
-    힘: 1,
-    지능: 1,
-    체력: 1,
-    정신력: 1,
-    // "물리 크리티컬 히트": 2,
-    // "마법 크리티컬 히트": 2,
-    // "모험가 명성": 0,
+    _능력치: 1,
+    캐스트속도: 0,
+    "모험가 명성": 0,
+    // 힘: 1,
+    // 지능: 1,
+    // 체력: 1,
+    // 정신력: 1,
   };
-
-  // -------- file I/O --------
-  //   static readJSONSafe(fp, fb) {
-  //     try {
-  //       if (!fs.existsSync(fp)) return fb;
-  //       return JSON.parse(fs.readFileSync(fp, "utf-8"));
-  //     } catch {
-  //       return fb;
-  //     }
-  //   }
 
   static loadBufferEnchantCatalog() {
     const raw = this.readJSONSafe(this.DATA_FILE, { bufferEnchants: [] });
@@ -46,23 +55,6 @@ class BufferEnchants extends DefaultEnchants {
     };
   }
 
-  // -------- normalize & map --------
-  //   static normalizeValue(v) {
-  //     if (typeof v === "number") return v;
-  //     if (typeof v === "string") {
-  //       const s = v.trim().replace(/,/g, "");
-  //       const m = s.match(/-?\d+(\.\d+)?/);
-  //       if (m) return parseFloat(m[0]);
-  //     }
-  //     return NaN;
-  //   }
-
-  //   static normalizeName(name) {
-  //     return String(name || "")
-  //       .trim()
-  //       .replace(/\s+/g, "");
-  //   }
-
   static toStatMap(statusList = []) {
     const map = {};
     for (const s of statusList || []) {
@@ -72,6 +64,11 @@ class BufferEnchants extends DefaultEnchants {
       map[key] = (map[key] || 0) + v;
     }
     return map;
+  }
+
+  static isAbilityStatKey(key) {
+    const k = this.normalizeName(key);
+    return k === "힘" || k === "지능" || k === "정신력" || k === "체력";
   }
 
   static toSkillMap(reinforceSkillList = [], targetJobId = null) {
@@ -98,6 +95,12 @@ class BufferEnchants extends DefaultEnchants {
     return map;
   }
 
+  // 스킬 이름으로 타입 판별 (패턴 매칭) - 사용 안 함, 삭제 예정
+  static getSkillTypeByName(skillName) {
+    // SKILL_TYPE에 없는 스킬은 모두 default로 처리
+    return "default";
+  }
+
   // -------- diff calculation --------
   static diffStatusArrays(currentStatus = [], recStatus = []) {
     const curStats = this.toStatMap(currentStatus);
@@ -106,11 +109,15 @@ class BufferEnchants extends DefaultEnchants {
     const byStat = {};
     const keys = new Set([...Object.keys(curStats), ...Object.keys(recStats)]);
 
-    let totalScore = 0;
+    // 능력치(힘/지능/체력/정신력) 중 최대값 1개만 선택
+    let bestAbility = { key: null, delta: 0 };
 
     for (const k of keys) {
       const nk = this.normalizeName(k);
       if (nk === "모험가명성") continue;
+      if (nk === "캐스트속도") continue;
+      if (nk === "물리크리티컬히트") continue;
+      if (nk === "마법크리티컬히트") continue;
 
       const c = Number(curStats[k] || 0);
       const r = Number(recStats[k] || 0);
@@ -120,9 +127,29 @@ class BufferEnchants extends DefaultEnchants {
 
       byStat[k] = { current: c, recommended: r, delta };
 
-      const weight = this.WEIGHTS[k] ?? 0;
-      totalScore += weight * delta;
+      // 능력치인 경우 최대값 추적
+      if (this.isAbilityStatKey(nk)) {
+        if (bestAbility.key === null || delta > bestAbility.delta) {
+          bestAbility = { key: k, delta };
+        }
+      }
     }
+
+    // 점수 계산
+    const abilityW = this.WEIGHTS._능력치 ?? 0.6;
+    const abilityScore = abilityW * (bestAbility.delta || 0);
+
+    // 나머지 스탯 점수 계산
+    let othersScore = 0;
+    for (const [k, v] of Object.entries(byStat)) {
+      const nk = this.normalizeName(k);
+      if (this.isAbilityStatKey(nk)) continue; // 능력치는 이미 처리됨
+
+      const weight = this.STAT_WEIGHTS[k] ?? 0;
+      if (weight) othersScore += weight * (v.delta || 0);
+    }
+
+    const totalScore = abilityScore + othersScore;
 
     return { byStat, statScore: totalScore };
   }
@@ -154,6 +181,19 @@ class BufferEnchants extends DefaultEnchants {
       if (!curLevel && !recLevel) continue;
 
       const skillInfo = rec || cur;
+
+      // 1. skillId로 먼저 확인
+      let skillType = this.SKILL_TYPES[skillInfo.skillId];
+
+      // 2. skillId로 찾지 못하면 스킬 이름으로 판별
+      if (!skillType) {
+        skillType = this.getSkillTypeByName(skillInfo.skillName);
+      }
+
+      // 3. 가중치 결정
+      const weight =
+        this.SKILL_WEIGHTS[skillType] || this.SKILL_WEIGHTS.default;
+
       bySkill[key] = {
         jobId: skillInfo.jobId,
         jobName: skillInfo.jobName,
@@ -162,12 +202,14 @@ class BufferEnchants extends DefaultEnchants {
         currentLevel: curLevel,
         recommendedLevel: recLevel,
         delta,
+        skillType, // 스킬 타입 (awakening_passive, job_passive, default)
+        weight, // 적용된 가중치
       };
 
-      const weight = this.SKILL_WEIGHTS.default;
       totalScore += weight * delta;
     }
 
+    console.log(bySkill);
     return { bySkill, skillScore: totalScore };
   }
 
