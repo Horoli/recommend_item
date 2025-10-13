@@ -194,13 +194,29 @@ module.exports = async function (fastify) {
 
           withPrice.sort((a, b) => b.score - a.score);
 
+          // currentStats와 currentSkills 합치기
+          const combinedCurrentStats = { ...slot.currentStats };
+
+          // currentSkills에서 스킬 정보 추출하여 추가
+          if (slot.currentSkills) {
+            for (const [key, skillInfo] of Object.entries(slot.currentSkills)) {
+              if (skillInfo && skillInfo.skillName && skillInfo.level) {
+                // 스킬 이름을 정규화하여 키로 사용
+                const skillName = BufferEnchants.normalizeName(
+                  skillInfo.skillName
+                );
+                combinedCurrentStats[skillName] = skillInfo.level;
+              }
+            }
+          }
+
           return {
             slotId: slot.slotId,
             slotName: slot.slotName,
             equippedItemId: slot.equippedItemId,
             equippedItemName: slot.equippedItemName,
-            currentStats: slot.currentStats,
-            currentSkills: slot.currentSkills,
+            currentStats: combinedCurrentStats,
+            // currentSkills: slot.currentSkills,
             recommended: withPrice,
           };
         });

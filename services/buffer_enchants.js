@@ -247,7 +247,6 @@ class BufferEnchants extends DefaultEnchants {
 
     const status = Array.isArray(chosen.status) ? chosen.status : [];
 
-    console.log(status);
     const reinforceSkill = Array.isArray(chosen.reinforceSkill)
       ? chosen.reinforceSkill
       : [];
@@ -300,34 +299,25 @@ class BufferEnchants extends DefaultEnchants {
     for (const c of candidates) {
       const recStats = this.toStatMap(c.status);
 
-      // targetJobId에 해당하는 스킬만 추출
-      // const skills = {};
-      // if (c.reinforceSkill && Array.isArray(c.reinforceSkill)) {
-      //   for (const jobSkills of c.reinforceSkill) {
-      //     // targetJobId와 일치하는 직업의 스킬만 처리
-      //     if (targetJobId && jobSkills.jobId !== targetJobId) continue;
+      // reinforceSkill에서 targetJobId에 해당하는 스킬만 recStats에 추가
+      if (c.reinforceSkill && Array.isArray(c.reinforceSkill)) {
+        for (const jobSkills of c.reinforceSkill) {
+          // targetJobId와 일치하는 직업의 스킬만 처리
+          if (targetJobId && jobSkills.jobId !== targetJobId) {
+            continue; // 다른 직업의 스킬은 건너뛰기
+          }
 
-      //     if (jobSkills.skills && Array.isArray(jobSkills.skills)) {
-      //       for (const skill of jobSkills.skills) {
-      //         if (skill.skillId && this.SKILL_TYPES[skill.skillId]) {
-      //           // SKILL_TYPES에 정의된 스킬만 추가
-      //           skills[skill.skillId] = {
-      //             skillId: skill.skillId,
-      //             name: skill.name,
-      //             value: skill.value,
-      //             type: this.SKILL_TYPES[skill.skillId], // 스킬 타입 추가
-      //             weight:
-      //               this.SKILL_WEIGHTS[this.SKILL_TYPES[skill.skillId]] ||
-      //               this.SKILL_WEIGHTS.default,
-      //           };
-      //         }
-      //       }
-      //     }
-      //   }
-      // }
-
-      // recStats에 skills 추가
-      // recStats.skills = skills;
+          if (jobSkills.skills && Array.isArray(jobSkills.skills)) {
+            for (const skill of jobSkills.skills) {
+              if (skill.name && skill.value) {
+                // 스킬 이름을 키로 사용
+                const skillName = this.normalizeName(skill.name);
+                recStats[skillName] = skill.value;
+              }
+            }
+          }
+        }
+      }
 
       // 딜러와 동일한 구조로 스탯 diff 계산
       const statDiff = this.diffStatusArrays(
@@ -335,7 +325,7 @@ class BufferEnchants extends DefaultEnchants {
         c.status
       );
 
-      // 스킬 diff 계산
+      // 스킬 diff 계산 - targetJobId 전달
       const skillDiff = this.diffSkillArrays(
         equip?.enchant?.reinforceSkill || [],
         c.reinforceSkill,
@@ -354,7 +344,7 @@ class BufferEnchants extends DefaultEnchants {
         upgrade: c.upgrade,
         rarity: c.rarity,
         score: totalScore,
-        recStats, // skills 객체가 포함된 recStats
+        recStats, // targetJobId에 해당하는 스킬이 포함된 recStats
         diff: {
           byStat: statDiff.byStat,
           bySkill: skillDiff.bySkill,
