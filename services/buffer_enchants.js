@@ -232,6 +232,8 @@ class BufferEnchants extends DefaultEnchants {
     if (!chosen) return null;
 
     const status = Array.isArray(chosen.status) ? chosen.status : [];
+
+    console.log(status);
     const reinforceSkill = Array.isArray(chosen.reinforceSkill)
       ? chosen.reinforceSkill
       : [];
@@ -292,6 +294,7 @@ class BufferEnchants extends DefaultEnchants {
         upgrade: c.upgrade,
         rarity: c.rarity,
         score: totalScore,
+        status: c.status,
         statDiff,
         skillDiff,
       });

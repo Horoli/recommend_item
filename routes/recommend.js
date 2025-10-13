@@ -243,6 +243,7 @@ module.exports = async function (fastify) {
 
           const slotMap = new Map();
           for (const slot of upgradeNeededSlots) {
+            console.log(slot.recommended);
             const cands = slot.recommended
               .map((r) => ({
                 slotId: slot.slotId,
@@ -255,6 +256,7 @@ module.exports = async function (fastify) {
                 deltaScore: r.score,
                 baseScore: 0,
                 candidateScore: r.score,
+                status: r.status,
                 statDiff: r.statDiff,
                 skillDiff: r.skillDiff,
                 rarity: r.rarity,
@@ -611,6 +613,7 @@ function summarizeBestPerSlotBuffer(cands) {
       upgrade: x.upgrade,
       price: x.price,
       deltaScore: x.deltaScore,
+      status: x.status,
       statDiff: x.statDiff,
       skillDiff: x.skillDiff,
       efficiency:
